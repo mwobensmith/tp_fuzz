@@ -3,7 +3,14 @@
 
 import socket
 import random
+import os
 
+def include(filename):
+    if os.path.exists(filename): 
+        execfile(filename)
+
+
+#include('myfile.py')
 
 def create_response():
     response = ""

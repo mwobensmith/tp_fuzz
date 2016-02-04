@@ -1,0 +1,1199 @@
+Process:               firefox [15707]
+Path:                  /Applications/Nightly.app/Contents/MacOS/./firefox
+Identifier:            org.mozilla.nightly
+Version:               47.0a1 (4716.2.2)
+Code Type:             X86-64 (Native)
+Parent Process:        ??? [1]
+Responsible:           Terminal [14597]
+User ID:               502
+
+Date/Time:             2016-02-03 02:22:53.258 -0800
+OS Version:            Mac OS X 10.10.5 (14F27)
+Report Version:        11
+Anonymous UUID:        09D5573C-7CFC-1DC1-6CBE-E81E3FEED02B
+
+Sleep/Wake UUID:       E371711E-60DF-4546-BB3A-A363C265B049
+
+Time Awake Since Boot: 3000000 seconds
+Time Since Wake:       53000 seconds
+
+Crashed Thread:        62  IndexedDB #2
+
+Exception Type:        EXC_BAD_ACCESS (SIGSEGV)
+Exception Codes:       KERN_INVALID_ADDRESS at 0x0000000000000028
+
+VM Regions Near 0x28:
+--> 
+    __TEXT                 0000000100000000-0000000100006000 [   24K] r-x/rwx SM=COW  /Applications/Nightly.app/Contents/MacOS/firefox
+
+Thread 0:: Dispatch queue: com.apple.main-thread
+0   libsystem_platform.dylib      	0x00007fff9598a000 _platform_strncmp + 0
+1   XUL                           	0x000000010126070a nsStandardURL::SchemeIs(char const*, bool*) + 58
+2   XUL                           	0x0000000101278d65 nsCookieService::CheckPrefs(nsIURI*, bool, bool, char const*) + 69
+3   XUL                           	0x0000000101277b54 nsCookieService::GetCookieStringInternal(nsIURI*, bool, bool, mozilla::NeckoOriginAttributes, bool, nsCString&) + 468
+4   XUL                           	0x00000001012778ce nsCookieService::GetCookieStringCommon(nsIURI*, nsIChannel*, bool, char**) + 334
+5   XUL                           	0x000000010137478e mozilla::net::HttpBaseChannel::AddCookiesToRequest() + 142
+6   XUL                           	0x00000001013c563e mozilla::net::nsHttpChannel::AsyncOpen(nsIStreamListener*, nsISupports*) + 606
+7   XUL                           	0x00000001013c6de7 non-virtual thunk to mozilla::net::nsHttpChannel::AsyncOpen2(nsIStreamListener*) + 71
+8   XUL                           	0x0000000103c6de7d nsUrlClassifierStreamUpdater::FetchUpdate(nsIURI*, nsACString_internal const&, nsACString_internal const&) + 605
+9   XUL                           	0x0000000103c6e303 nsUrlClassifierStreamUpdater::FetchUpdate(nsACString_internal const&, nsACString_internal const&, nsACString_internal const&) + 339
+10  XUL                           	0x0000000103c6eae0 nsUrlClassifierStreamUpdater::FetchNext() + 96
+11  XUL                           	0x0000000103c6f8c8 non-virtual thunk to nsUrlClassifierStreamUpdater::Notify(nsITimer*) + 72
+12  XUL                           	0x000000010119ea53 nsTimerImpl::Fire() + 1107
+13  XUL                           	0x0000000101190db3 nsTimerEvent::Run() + 243
+14  XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+15  XUL                           	0x00000001011c391f NS_ProcessPendingEvents(nsIThread*, unsigned int) + 95
+16  XUL                           	0x0000000103214c44 nsBaseAppShell::NativeEventCallback() + 116
+17  XUL                           	0x000000010326b844 nsAppShell::ProcessGeckoEvents(void*) + 308
+18  com.apple.CoreFoundation      	0x00007fff8a25aa01 __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + 17
+19  com.apple.CoreFoundation      	0x00007fff8a24cb8d __CFRunLoopDoSources0 + 269
+20  com.apple.CoreFoundation      	0x00007fff8a24c1bf __CFRunLoopRun + 927
+21  com.apple.CoreFoundation      	0x00007fff8a24bbd8 CFRunLoopRunSpecific + 296
+22  com.apple.HIToolbox           	0x00007fff8f47056f RunCurrentEventLoopInMode + 235
+23  com.apple.HIToolbox           	0x00007fff8f4702ea ReceiveNextEventCommon + 431
+24  com.apple.HIToolbox           	0x00007fff8f47012b _BlockUntilNextEventMatchingListInModeWithFilter + 71
+25  com.apple.AppKit              	0x00007fff8ff378ab _DPSNextEvent + 978
+26  com.apple.AppKit              	0x00007fff8ff36e58 -[NSApplication nextEventMatchingMask:untilDate:inMode:dequeue:] + 346
+27  XUL                           	0x000000010326aea6 -[GeckoNSApplication nextEventMatchingMask:untilDate:inMode:dequeue:] + 86
+28  com.apple.AppKit              	0x00007fff8ff2caf3 -[NSApplication run] + 594
+29  XUL                           	0x000000010326be18 nsAppShell::Run() + 232
+30  XUL                           	0x0000000103c43179 nsAppStartup::Run() + 41
+31  XUL                           	0x0000000103c99c0e XREMain::XRE_mainRun() + 3550
+32  XUL                           	0x0000000103c9a05e XREMain::XRE_main(int, char**, nsXREAppData const*) + 606
+33  XUL                           	0x0000000103c9a3e4 XRE_main + 244
+34  org.mozilla.nightly           	0x0000000100001a54 main + 1732
+35  org.mozilla.nightly           	0x0000000100001054 start + 52
+
+Thread 1:: Dispatch queue: com.apple.libdispatch-manager
+0   libsystem_kernel.dylib        	0x00007fff94801232 kevent64 + 10
+1   libdispatch.dylib             	0x00007fff961e8a6a _dispatch_mgr_thread + 52
+
+Thread 2:
+0   libsystem_kernel.dylib        	0x00007fff947fb4de mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x00007fff947fa64f mach_msg + 55
+2   XUL                           	0x0000000103cd5d45 google_breakpad::ExceptionHandler::WaitForMessage(void*) + 149
+3   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+4   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+5   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 3:: Gecko_IOThread
+0   libsystem_kernel.dylib        	0x00007fff9480121a kevent + 10
+1   XUL                           	0x0000000101501464 event_base_loop + 1108
+2   XUL                           	0x00000001014baed5 base::MessagePumpLibevent::Run(base::MessagePump::Delegate*) + 261
+3   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+4   XUL                           	0x00000001014c82f5 base::Thread::ThreadMain() + 197
+5   XUL                           	0x00000001014c834a ThreadFunc(void*) + 10
+6   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+7   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+8   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 4:: Socket Thread
+0   libsystem_kernel.dylib        	0x00007fff948003fa __select + 10
+1   libnss3.dylib                 	0x0000000100630070 PR_Poll + 1360
+2   XUL                           	0x0000000101256b9e nsSocketTransportService::Poll(bool, unsigned int*, mozilla::BaseTimeDuration<mozilla::TimeDurationValueCalculator>*) + 254
+3   XUL                           	0x000000010125853b nsSocketTransportService::DoPollIteration(bool, mozilla::BaseTimeDuration<mozilla::TimeDurationValueCalculator>*) + 891
+4   XUL                           	0x0000000101257c7c nsSocketTransportService::Run() + 460
+5   XUL                           	0x0000000101258b4d non-virtual thunk to nsSocketTransportService::Run() + 13
+6   XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+7   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+8   XUL                           	0x000000010152988c mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 172
+9   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+10  XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+11  libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+12  libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+13  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+14  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 5:: JS Helper
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000104b0742b js::HelperThread::threadLoop() + 139
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 6:: JS Helper
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000104b0742b js::HelperThread::threadLoop() + 139
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 7:: JS Helper
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000104b0742b js::HelperThread::threadLoop() + 139
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 8:: JS Helper
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000104b0742b js::HelperThread::threadLoop() + 139
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 9:: JS Helper
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000104b0742b js::HelperThread::threadLoop() + 139
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 10:: JS Helper
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000104b0742b js::HelperThread::threadLoop() + 139
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 11:: JS Helper
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000104b0742b js::HelperThread::threadLoop() + 139
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 12:: JS Helper
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000104b0742b js::HelperThread::threadLoop() + 139
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 13:: JS Helper
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000104b0742b js::HelperThread::threadLoop() + 139
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 14:: JS Helper
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000104b0742b js::HelperThread::threadLoop() + 139
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 15:: JS Helper
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000104b0742b js::HelperThread::threadLoop() + 139
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 16:: JS Helper
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000104b0742b js::HelperThread::threadLoop() + 139
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 17:
+0   libsystem_kernel.dylib        	0x00007fff947fb4de mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x00007fff947fa64f mach_msg + 55
+2   XUL                           	0x000000010478a8f4 MachExceptionHandlerThread(void*) + 68
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 18:: JS Watchdog
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341d8 PR_WaitCondVar + 232
+2   XUL                           	0x0000000101a552b0 WatchdogMain(void*) + 176
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 19:: Hang Monitor
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x000000010118d5d6 mozilla::HangMonitor::ThreadMain(void*) + 390
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 20:: BgHangManager
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341d8 PR_WaitCondVar + 232
+2   XUL                           	0x000000010118ac3b mozilla::BackgroundHangManager::RunMonitorThread() + 91
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 21:: Cache2 I/O
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001013095f3 mozilla::net::CacheIOThread::ThreadFunc() + 435
+3   XUL                           	0x0000000101309324 mozilla::net::CacheIOThread::ThreadFunc(void*) + 36
+4   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+5   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+6   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+7   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 22:: Timer
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341d8 PR_WaitCondVar + 232
+2   XUL                           	0x0000000101191659 TimerThread::Run() + 1049
+3   XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 23:
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001011925c6 nsEventQueue::GetEvent(bool, nsIRunnable**, mozilla::BaseAutoLock<mozilla::Mutex>&) + 182
+3   XUL                           	0x000000010119547d nsThread::ProcessNextEvent(bool, bool*) + 973
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 24:: Cert Verify
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000103ad84b3 nsCertVerificationThread::Run() + 99
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 25:: IPDL Background
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001011925c6 nsEventQueue::GetEvent(bool, nsIRunnable**, mozilla::BaseAutoLock<mozilla::Mutex>&) + 182
+3   XUL                           	0x000000010119547d nsThread::ProcessNextEvent(bool, bool*) + 973
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 26:: DOM Worker
+0   libsystem_kernel.dylib        	0x00007fff947fb5da syscall_thread_switch + 10
+1   libsystem_platform.dylib      	0x00007fff9598c82d _OSSpinLockLockSlow + 63
+2   libmozglue.dylib              	0x0000000100014adf arena_malloc + 207
+3   libmozglue.dylib              	0x000000010001278d je_malloc + 173
+4   libsystem_malloc.dylib        	0x00007fff9191d667 malloc_zone_malloc + 71
+5   libsystem_malloc.dylib        	0x00007fff9191c187 malloc + 42
+6   XUL                           	0x0000000104cc3890 mozilla::Vector<js::gcstats::Statistics::SliceData, 8ul, js::SystemAllocPolicy>::growStorageBy(unsigned long) + 288
+7   XUL                           	0x0000000104cb5b15 js::gcstats::Statistics::beginSlice(js::gcstats::ZoneGCStats const&, JSGCInvocationKind, js::SliceBudget, JS::gcreason::Reason) + 309
+8   XUL                           	0x0000000104a25d90 js::gc::GCRuntime::collect(bool, js::SliceBudget, JS::gcreason::Reason) + 464
+9   XUL                           	0x0000000104a289bd JS::GCForReason(JSRuntime*, JSGCInvocationKind, JS::gcreason::Reason) + 93
+10  XUL                           	0x0000000103070eb8 mozilla::dom::workers::WorkerPrivate::GarbageCollectInternal(JSContext*, bool, bool) + 168
+11  XUL                           	0x000000010307d9c7 (anonymous namespace)::GarbageCollectRunnable::WorkerRun(JSContext*, mozilla::dom::workers::WorkerPrivate*) + 39
+12  XUL                           	0x0000000103072be4 mozilla::dom::workers::WorkerRunnable::Run() + 660
+13  XUL                           	0x000000010306cb33 mozilla::dom::workers::WorkerPrivate::ProcessAllControlRunnablesLocked() + 163
+14  XUL                           	0x000000010306c3e8 mozilla::dom::workers::WorkerPrivate::DoRunLoop(JSContext*) + 312
+15  XUL                           	0x000000010303e8ef (anonymous namespace)::WorkerThreadPrimaryRunnable::Run() + 1519
+16  XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+17  XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+18  XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+19  XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+20  XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+21  libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+22  libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+23  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+24  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 27:
+0   libsystem_kernel.dylib        	0x00007fff947fb4de mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x00007fff947fa64f mach_msg + 55
+2   XUL                           	0x000000010478a8f4 MachExceptionHandlerThread(void*) + 68
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 28:: ImgDecoder #1
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000101f23091 mozilla::image::DecodePoolImpl::PopWork() + 81
+3   XUL                           	0x0000000101f22e66 mozilla::image::DecodePoolWorker::Run() + 390
+4   XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+5   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+6   XUL                           	0x000000010152988c mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 172
+7   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+8   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+9   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+10  libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+11  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+12  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 29:: ImgDecoder #2
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000101f23091 mozilla::image::DecodePoolImpl::PopWork() + 81
+3   XUL                           	0x0000000101f22e66 mozilla::image::DecodePoolWorker::Run() + 390
+4   XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+5   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+6   XUL                           	0x000000010152988c mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 172
+7   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+8   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+9   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+10  libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+11  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+12  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 30:: ImgDecoder #3
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000101f23091 mozilla::image::DecodePoolImpl::PopWork() + 81
+3   XUL                           	0x0000000101f22e66 mozilla::image::DecodePoolWorker::Run() + 390
+4   XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+5   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+6   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+7   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+8   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+9   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+10  libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+11  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+12  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 31:: ImgDecoder #4
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000101f23091 mozilla::image::DecodePoolImpl::PopWork() + 81
+3   XUL                           	0x0000000101f22e66 mozilla::image::DecodePoolWorker::Run() + 390
+4   XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+5   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+6   XUL                           	0x000000010152988c mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 172
+7   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+8   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+9   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+10  libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+11  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+12  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 32:: ImgDecoder #5
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000101f23091 mozilla::image::DecodePoolImpl::PopWork() + 81
+3   XUL                           	0x0000000101f22e66 mozilla::image::DecodePoolWorker::Run() + 390
+4   XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+5   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+6   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+7   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+8   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+9   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+10  libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+11  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+12  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 33:: ImgDecoder #6
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000101f23091 mozilla::image::DecodePoolImpl::PopWork() + 81
+3   XUL                           	0x0000000101f22e66 mozilla::image::DecodePoolWorker::Run() + 390
+4   XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+5   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+6   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+7   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+8   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+9   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+10  libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+11  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+12  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 34:: ImgDecoder #7
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000101f23091 mozilla::image::DecodePoolImpl::PopWork() + 81
+3   XUL                           	0x0000000101f22e66 mozilla::image::DecodePoolWorker::Run() + 390
+4   XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+5   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+6   XUL                           	0x000000010152988c mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 172
+7   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+8   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+9   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+10  libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+11  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+12  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 35:: ImageIO
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001011925c6 nsEventQueue::GetEvent(bool, nsIRunnable**, mozilla::BaseAutoLock<mozilla::Mutex>&) + 182
+3   XUL                           	0x000000010119547d nsThread::ProcessNextEvent(bool, bool*) + 973
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 36:: Compositor
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   XUL                           	0x00000001014d1988 base::WaitableEvent::TimedWait(base::TimeDelta const&) + 488
+2   XUL                           	0x00000001014d1b09 base::WaitableEvent::Wait() + 25
+3   XUL                           	0x00000001014ba75c base::MessagePumpDefault::Run(base::MessagePump::Delegate*) + 748
+4   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+5   XUL                           	0x00000001014c82f5 base::Thread::ThreadMain() + 197
+6   XUL                           	0x00000001014c834a ThreadFunc(void*) + 10
+7   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+8   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+9   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 37:: ImageBridgeChild
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   XUL                           	0x00000001014d1988 base::WaitableEvent::TimedWait(base::TimeDelta const&) + 488
+2   XUL                           	0x00000001014d1b09 base::WaitableEvent::Wait() + 25
+3   XUL                           	0x00000001014ba75c base::MessagePumpDefault::Run(base::MessagePump::Delegate*) + 748
+4   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+5   XUL                           	0x00000001014c82f5 base::Thread::ThreadMain() + 197
+6   XUL                           	0x00000001014c834a ThreadFunc(void*) + 10
+7   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+8   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+9   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 38:: SoftwareVsyncThread
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   XUL                           	0x00000001014af94b ConditionVariable::TimedWait(base::TimeDelta const&) + 91
+2   XUL                           	0x00000001014d1912 base::WaitableEvent::TimedWait(base::TimeDelta const&) + 370
+3   XUL                           	0x00000001014ba697 base::MessagePumpDefault::Run(base::MessagePump::Delegate*) + 551
+4   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+5   XUL                           	0x00000001014c82f5 base::Thread::ThreadMain() + 197
+6   XUL                           	0x00000001014c834a ThreadFunc(void*) + 10
+7   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+8   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+9   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 39:: mozStorage #1
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001011925c6 nsEventQueue::GetEvent(bool, nsIRunnable**, mozilla::BaseAutoLock<mozilla::Mutex>&) + 182
+3   XUL                           	0x000000010119547d nsThread::ProcessNextEvent(bool, bool*) + 973
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 40:: Proxy R~olution
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001011925c6 nsEventQueue::GetEvent(bool, nsIRunnable**, mozilla::BaseAutoLock<mozilla::Mutex>&) + 182
+3   XUL                           	0x000000010119547d nsThread::ProcessNextEvent(bool, bool*) + 973
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 41:: URL Classifier
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001011925c6 nsEventQueue::GetEvent(bool, nsIRunnable**, mozilla::BaseAutoLock<mozilla::Mutex>&) + 182
+3   XUL                           	0x000000010119547d nsThread::ProcessNextEvent(bool, bool*) + 973
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 42:: DNS Resolver #1
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341d8 PR_WaitCondVar + 232
+2   XUL                           	0x00000001012887dd nsHostResolver::GetHostToLookup(nsHostRecord**) + 301
+3   XUL                           	0x0000000101288205 nsHostResolver::ThreadFunc(void*) + 277
+4   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+5   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+6   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+7   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 43:: GMPThread
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001011925c6 nsEventQueue::GetEvent(bool, nsIRunnable**, mozilla::BaseAutoLock<mozilla::Mutex>&) + 182
+3   XUL                           	0x000000010119547d nsThread::ProcessNextEvent(bool, bool*) + 973
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 44:: SpeechWorker
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001011925c6 nsEventQueue::GetEvent(bool, nsIRunnable**, mozilla::BaseAutoLock<mozilla::Mutex>&) + 182
+3   XUL                           	0x000000010119547d nsThread::ProcessNextEvent(bool, bool*) + 973
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 45:: mozStorage #2
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001011925c6 nsEventQueue::GetEvent(bool, nsIRunnable**, mozilla::BaseAutoLock<mozilla::Mutex>&) + 182
+3   XUL                           	0x000000010119547d nsThread::ProcessNextEvent(bool, bool*) + 973
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 46:
+0   libsystem_kernel.dylib        	0x00007fff947fb4de mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x00007fff947fa64f mach_msg + 55
+2   com.apple.CoreFoundation      	0x00007fff8a24ceb4 __CFRunLoopServiceMachPort + 212
+3   com.apple.CoreFoundation      	0x00007fff8a24c37b __CFRunLoopRun + 1371
+4   com.apple.CoreFoundation      	0x00007fff8a24bbd8 CFRunLoopRunSpecific + 296
+5   com.apple.AppKit              	0x00007fff8ffff56b _NSEventThread + 137
+6   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+7   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+8   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 47:: DOM Worker
+0   XUL                           	0x0000000104a25033 js::gc::GCRuntime::incrementalCollectSlice(js::SliceBudget&, JS::gcreason::Reason) + 851
+1   XUL                           	0x0000000104a257f1 js::gc::GCRuntime::gcCycle(bool, js::SliceBudget&, JS::gcreason::Reason) + 545
+2   XUL                           	0x0000000104a25daf js::gc::GCRuntime::collect(bool, js::SliceBudget, JS::gcreason::Reason) + 495
+3   XUL                           	0x0000000104a289bd JS::GCForReason(JSRuntime*, JSGCInvocationKind, JS::gcreason::Reason) + 93
+4   XUL                           	0x0000000103070eb8 mozilla::dom::workers::WorkerPrivate::GarbageCollectInternal(JSContext*, bool, bool) + 168
+5   XUL                           	0x000000010307d9c7 (anonymous namespace)::GarbageCollectRunnable::WorkerRun(JSContext*, mozilla::dom::workers::WorkerPrivate*) + 39
+6   XUL                           	0x0000000103072be4 mozilla::dom::workers::WorkerRunnable::Run() + 660
+7   XUL                           	0x000000010306cb33 mozilla::dom::workers::WorkerPrivate::ProcessAllControlRunnablesLocked() + 163
+8   XUL                           	0x000000010306c3e8 mozilla::dom::workers::WorkerPrivate::DoRunLoop(JSContext*) + 312
+9   XUL                           	0x000000010303e8ef (anonymous namespace)::WorkerThreadPrimaryRunnable::Run() + 1519
+10  XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+11  XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+12  XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+13  XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+14  XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+15  libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+16  libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+17  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+18  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 48:
+0   libsystem_kernel.dylib        	0x00007fff947fb4de mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x00007fff947fa64f mach_msg + 55
+2   XUL                           	0x000000010478a8f4 MachExceptionHandlerThread(void*) + 68
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 49:
+0   libsystem_kernel.dylib        	0x00007fff947fb4de mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x00007fff947fa64f mach_msg + 55
+2   XUL                           	0x0000000103cd2da7 google_breakpad::ReceivePort::WaitForMessage(google_breakpad::MachReceiveMessage*, unsigned int) + 103
+3   XUL                           	0x0000000103cd3f7a google_breakpad::CrashGenerationServer::WaitForOneMessage() + 74
+4   XUL                           	0x0000000103cd3f18 google_breakpad::CrashGenerationServer::WaitForMessages(void*) + 24
+5   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+6   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+7   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 50:
+0   libsystem_kernel.dylib        	0x00007fff947fb4de mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x00007fff947fa64f mach_msg + 55
+2   XUL                           	0x00000001014e954d ReceivePort::WaitForMessage(MachReceiveMessage*, unsigned int) + 125
+3   XUL                           	0x0000000101532b52 mozilla::ipc::PortServerThread(void*) + 98
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 51:: Cache I/O
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001011925c6 nsEventQueue::GetEvent(bool, nsIRunnable**, mozilla::BaseAutoLock<mozilla::Mutex>&) + 182
+3   XUL                           	0x000000010119547d nsThread::ProcessNextEvent(bool, bool*) + 973
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 52:: ProcessHangMonitor
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   XUL                           	0x00000001014d1988 base::WaitableEvent::TimedWait(base::TimeDelta const&) + 488
+2   XUL                           	0x00000001014d1b09 base::WaitableEvent::Wait() + 25
+3   XUL                           	0x00000001014ba75c base::MessagePumpDefault::Run(base::MessagePump::Delegate*) + 748
+4   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+5   XUL                           	0x00000001014c82f5 base::Thread::ThreadMain() + 197
+6   XUL                           	0x00000001014c834a ThreadFunc(void*) + 10
+7   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+8   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+9   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 53:: localStorage DB
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x0000000102e6616b mozilla::dom::DOMStorageDBThread::ThreadFunc() + 635
+3   XUL                           	0x0000000102e64934 mozilla::dom::DOMStorageDBThread::ThreadFunc(void*) + 36
+4   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+5   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+6   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+7   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 54:: mozStorage #3
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001011925c6 nsEventQueue::GetEvent(bool, nsIRunnable**, mozilla::BaseAutoLock<mozilla::Mutex>&) + 182
+3   XUL                           	0x000000010119547d nsThread::ProcessNextEvent(bool, bool*) + 973
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 55:: mozStorage #4
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001011925c6 nsEventQueue::GetEvent(bool, nsIRunnable**, mozilla::BaseAutoLock<mozilla::Mutex>&) + 182
+3   XUL                           	0x000000010119547d nsThread::ProcessNextEvent(bool, bool*) + 973
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 56:: mozStorage #5
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001011925c6 nsEventQueue::GetEvent(bool, nsIRunnable**, mozilla::BaseAutoLock<mozilla::Mutex>&) + 182
+3   XUL                           	0x000000010119547d nsThread::ProcessNextEvent(bool, bool*) + 973
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 57:: HTML5 Parser
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001011925c6 nsEventQueue::GetEvent(bool, nsIRunnable**, mozilla::BaseAutoLock<mozilla::Mutex>&) + 182
+3   XUL                           	0x000000010119547d nsThread::ProcessNextEvent(bool, bool*) + 973
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 58:: DOM Worker
+0   XUL                           	0x0000000104c9fb31 js::GCMarker::processMarkStackTop(js::SliceBudget&) + 1665
+1   XUL                           	0x0000000104c90295 js::GCMarker::drainMarkStack(js::SliceBudget&) + 69
+2   XUL                           	0x0000000104a2506a js::gc::GCRuntime::incrementalCollectSlice(js::SliceBudget&, JS::gcreason::Reason) + 906
+3   XUL                           	0x0000000104a257f1 js::gc::GCRuntime::gcCycle(bool, js::SliceBudget&, JS::gcreason::Reason) + 545
+4   XUL                           	0x0000000104a25daf js::gc::GCRuntime::collect(bool, js::SliceBudget, JS::gcreason::Reason) + 495
+5   XUL                           	0x0000000104a289bd JS::GCForReason(JSRuntime*, JSGCInvocationKind, JS::gcreason::Reason) + 93
+6   XUL                           	0x0000000103070eb8 mozilla::dom::workers::WorkerPrivate::GarbageCollectInternal(JSContext*, bool, bool) + 168
+7   XUL                           	0x000000010307d9c7 (anonymous namespace)::GarbageCollectRunnable::WorkerRun(JSContext*, mozilla::dom::workers::WorkerPrivate*) + 39
+8   XUL                           	0x0000000103072be4 mozilla::dom::workers::WorkerRunnable::Run() + 660
+9   XUL                           	0x000000010306cb33 mozilla::dom::workers::WorkerPrivate::ProcessAllControlRunnablesLocked() + 163
+10  XUL                           	0x000000010306c3e8 mozilla::dom::workers::WorkerPrivate::DoRunLoop(JSContext*) + 312
+11  XUL                           	0x000000010303e8ef (anonymous namespace)::WorkerThreadPrimaryRunnable::Run() + 1519
+12  XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+13  XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+14  XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+15  XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+16  XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+17  libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+18  libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+19  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+20  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 59:
+0   libsystem_kernel.dylib        	0x00007fff947fb4de mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x00007fff947fa64f mach_msg + 55
+2   XUL                           	0x000000010478a8f4 MachExceptionHandlerThread(void*) + 68
+3   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+4   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+5   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+6   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 60:: DNS Resolver #2
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341d8 PR_WaitCondVar + 232
+2   XUL                           	0x00000001012887dd nsHostResolver::GetHostToLookup(nsHostRecord**) + 301
+3   XUL                           	0x0000000101288205 nsHostResolver::ThreadFunc(void*) + 277
+4   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+5   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+6   libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+7   libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 61:: mozStorage #6
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341ef PR_WaitCondVar + 255
+2   XUL                           	0x00000001011925c6 nsEventQueue::GetEvent(bool, nsIRunnable**, mozilla::BaseAutoLock<mozilla::Mutex>&) + 182
+3   XUL                           	0x000000010119547d nsThread::ProcessNextEvent(bool, bool*) + 973
+4   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+5   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+6   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+7   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+8   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+9   libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+10  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+11  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 62 Crashed:: IndexedDB #2
+0   XUL                           	0x00000001011b49e7 PLDHashTable::Search(void const*) + 23
+1   XUL                           	0x0000000102f80c36 mozilla::dom::indexedDB::(anonymous namespace)::DatabaseConnection::GetCachedStatement(nsACString_internal const&, mozilla::dom::indexedDB::(anonymous namespace)::DatabaseConnection::CachedStatement*) + 214
+2   XUL                           	0x0000000102f80ac5 mozilla::dom::indexedDB::(anonymous namespace)::DatabaseConnection::GetFreelistCount(mozilla::dom::indexedDB::(anonymous namespace)::DatabaseConnection::CachedStatement&, unsigned int*) + 229
+3   XUL                           	0x0000000102f7fefd mozilla::dom::indexedDB::(anonymous namespace)::ConnectionPool::IdleConnectionRunnable::Run() + 269
+4   XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+5   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+6   XUL                           	0x0000000102f7f8fd mozilla::dom::indexedDB::(anonymous namespace)::ConnectionPool::ThreadRunnable::Run() + 285
+7   XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+8   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+9   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+10  XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+11  XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+12  libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+13  libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+14  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+15  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 63:: Indexed~ Mnt #1
+0   libsystem_kernel.dylib        	0x00007fff94800136 __psynch_cvwait + 10
+1   libnss3.dylib                 	0x00000001006341d8 PR_WaitCondVar + 232
+2   XUL                           	0x00000001011973cc nsThreadPool::Run() + 796
+3   XUL                           	0x00000001011975ed non-virtual thunk to nsThreadPool::Run() + 13
+4   XUL                           	0x00000001011954f7 nsThread::ProcessNextEvent(bool, bool*) + 1095
+5   XUL                           	0x00000001011c39d3 NS_ProcessNextEvent(nsIThread*, bool) + 51
+6   XUL                           	0x00000001015298ff mozilla::ipc::MessagePumpForNonMainThreads::Run(base::MessagePump::Delegate*) + 287
+7   XUL                           	0x00000001014b94c9 MessageLoop::Run() + 73
+8   XUL                           	0x0000000101193f7c nsThread::ThreadFunc(void*) + 188
+9   libnss3.dylib                 	0x00000001006366ba _pt_root + 218
+10  libsystem_pthread.dylib       	0x00007fff8e0eb05a _pthread_body + 131
+11  libsystem_pthread.dylib       	0x00007fff8e0eafd7 _pthread_start + 176
+12  libsystem_pthread.dylib       	0x00007fff8e0e83ed thread_start + 13
+
+Thread 62 crashed with X86 Thread State (64-bit):
+  rax: 0x0000000000000000  rbx: 0x000000011ef899e8  rcx: 0x0000000119330000  rdx: 0x0000000105bb3084
+  rdi: 0x0000000000000010  rsi: 0x000000011ef89a38  rbp: 0x000000011ef899d0  rsp: 0x000000011ef89990
+   r8: 0x000000011ef89be0   r9: 0x0000000000000060  r10: 0x0000000000000000  r11: 0x0000000000000202
+  r12: 0x000000011ef89af8  r13: 0x0000000000000000  r14: 0x0000000000000010  r15: 0x000000011ef89a38
+  rip: 0x00000001011b49e7  rfl: 0x0000000000010246  cr2: 0x0000000000000028
+  
+Logical CPU:     5
+Error Code:      0x00000004
+Trap Number:     14
+
+
+Binary Images:
+       0x100000000 -        0x100005fff +org.mozilla.nightly (47.0a1 - 4716.2.2) <16334B97-79C0-33BE-B8FE-FE84A725EA59> /Applications/Nightly.app/Contents/MacOS/firefox
+       0x100010000 -        0x100030ff7 +libmozglue.dylib (1) <1D6C4F72-65BD-3F9C-82D3-FC507034028D> /Applications/Nightly.app/Contents/MacOS/libmozglue.dylib
+       0x100400000 -        0x1006a7ff7 +libnss3.dylib (1) <02B8FC41-81D2-3D1E-8842-7E879FCEF0A8> /Applications/Nightly.app/Contents/MacOS/libnss3.dylib
+       0x101000000 -        0x10101bff7 +liblgpllibs.dylib (1) <95980290-F874-3B56-8F86-0EEA948003C1> /Applications/Nightly.app/Contents/MacOS/liblgpllibs.dylib
+       0x1010d4000 -        0x106782fd7 +XUL (1) <08194992-F7CC-3392-8290-DF1237EB1BFE> /Applications/Nightly.app/Contents/MacOS/XUL
+       0x10b01e000 -        0x10b01ffff  com.apple.VideoDecodeAcceleration (1.1 - 8) <B624EA7A-EECA-3A30-9FE9-25C8339535BE> /System/Library/Frameworks/VideoDecodeAcceleration.framework/VideoDecodeAcceleration
+       0x10c302000 -        0x10c326ff7 +libmozavutil.dylib (1) <B656A546-5649-30B4-AEC4-4E1B86648C5B> /Applications/Nightly.app/Contents/MacOS/libmozavutil.dylib
+       0x10c389000 -        0x10c3a4fff +libbrowsercomps.dylib (???) <63C166D2-0BF9-39A9-B3CE-C9F9491A8128> /Applications/Nightly.app/Contents/Resources/browser/components/libbrowsercomps.dylib
+       0x118ba3000 -        0x118bdbff7 +libsoftokn3.dylib (1) <B103EE9B-2553-34FD-A483-72E7571A631D> /Applications/Nightly.app/Contents/MacOS/libsoftokn3.dylib
+       0x119700000 -        0x119722fff +libnssdbm3.dylib (1) <91BF10D8-75A7-3479-A6D0-BF6E3FF07E52> /Applications/Nightly.app/Contents/MacOS/libnssdbm3.dylib
+       0x11973a000 -        0x1197a2ff7 +libfreebl3.dylib (1) <2A5B1B64-75A1-3E03-83BD-39C53CA396C7> /Applications/Nightly.app/Contents/MacOS/libfreebl3.dylib
+       0x11a200000 -        0x11a25dfff +libnssckbi.dylib (???) <36338326-5A7F-3C08-976F-83AD82603CCC> /Applications/Nightly.app/Contents/MacOS/libnssckbi.dylib
+       0x11dd00000 -        0x11dec1ff7 +libmozavcodec.dylib (1) <05BD2E81-0AD7-3A44-B679-00486F817F6B> /Applications/Nightly.app/Contents/MacOS/libmozavcodec.dylib
+       0x12c800000 -        0x12cca4fff  com.apple.driver.AppleIntelHD4000GraphicsGLDriver (10.6.33 - 10.0.6) <19DBE68A-FA51-3A1E-B1EB-B9485C6C239A> /System/Library/Extensions/AppleIntelHD4000GraphicsGLDriver.bundle/Contents/MacOS/AppleIntelHD4000GraphicsGLDriver
+    0x123440000000 -     0x123440864ff7  com.apple.GeForceGLDriver (10.4.2 - 10.0.4) <B0061373-9661-35DD-B71A-8970A962432F> /System/Library/Extensions/GeForceGLDriver.bundle/Contents/MacOS/GeForceGLDriver
+    0x7fff6f1a7000 -     0x7fff6f1dd887  dyld (353.2.3) <B1B370A5-479F-3533-8AD7-97B687D4F989> /usr/lib/dyld
+    0x7fff8a0ca000 -     0x7fff8a1d9ff3  com.apple.desktopservices (1.9.3 - 1.9.3) <FEE11342-5BC4-37A7-8169-DA48BE17B9C9> /System/Library/PrivateFrameworks/DesktopServicesPriv.framework/Versions/A/DesktopServicesPriv
+    0x7fff8a1da000 -     0x7fff8a572ff7  com.apple.CoreFoundation (6.9 - 1153.18) <5C0892B8-9691-341F-9279-CA3A74D59AA0> /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+    0x7fff8a573000 -     0x7fff8a85affb  com.apple.CoreServices.CarbonCore (1108.6 - 1108.6) <8953580E-7857-33B2-AA64-98296830D3A8> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore
+    0x7fff8a85b000 -     0x7fff8a875ff3  com.apple.Ubiquity (1.3 - 313) <DF56A657-CC6E-3BE2-86A0-71F07127724C> /System/Library/PrivateFrameworks/Ubiquity.framework/Versions/A/Ubiquity
+    0x7fff8a880000 -     0x7fff8a899ff3  com.apple.openscripting (1.6.4 - 162.2) <BF79207B-C762-346D-8FF0-3DDCECC9E9E2> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/OpenScripting.framework/Versions/A/OpenScripting
+    0x7fff8a89a000 -     0x7fff8a8c6fff  com.apple.framework.SystemAdministration (1.0 - 1.0) <9F77597C-BAB8-3D86-B6CC-96D54D89E6AE> /System/Library/PrivateFrameworks/SystemAdministration.framework/Versions/A/SystemAdministration
+    0x7fff8a8c7000 -     0x7fff8a908fff  libGLU.dylib (11.1.2) <2BA52A8D-ED35-3D86-B2D6-41479969C96D> /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib
+    0x7fff8a90b000 -     0x7fff8a919ff7  com.apple.opengl (11.1.2 - 11.1.2) <5F355713-4637-33CD-9CBA-4B4CA43FB0FE> /System/Library/Frameworks/OpenGL.framework/Versions/A/OpenGL
+    0x7fff8a91a000 -     0x7fff8a922ffb  libcopyfile.dylib (118.1.2) <0C68D3A6-ACDD-3EF3-991A-CC82C32AB836> /usr/lib/system/libcopyfile.dylib
+    0x7fff8a923000 -     0x7fff8a9b1ff7  com.apple.CorePDF (4.0 - 4) <9CD7EC6D-3593-3D60-B04F-75F612CCB99A> /System/Library/PrivateFrameworks/CorePDF.framework/Versions/A/CorePDF
+    0x7fff8a9b2000 -     0x7fff8a9ddff7  com.apple.DictionaryServices (1.2 - 229.1) <62EC3E1B-5A28-3252-90FF-C2E9999C2A2A> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices
+    0x7fff8a9de000 -     0x7fff8af07ff7  com.apple.QuartzComposer (5.1 - 332.1) <64399385-0768-3590-B4EF-1BD0F8A35CB3> /System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuartzComposer.framework/Versions/A/QuartzComposer
+    0x7fff8af08000 -     0x7fff8af5cfff  libc++.1.dylib (120) <1B9530FD-989B-3174-BB1C-BDC159501710> /usr/lib/libc++.1.dylib
+    0x7fff8af5d000 -     0x7fff8af61fff  libCoreVMClient.dylib (79.1) <201EF6DF-5074-3CB7-A361-398CF957A264> /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreVMClient.dylib
+    0x7fff8af6b000 -     0x7fff8afd9ff3  com.apple.Heimdal (4.0 - 2.0) <8D1667CF-D454-3E07-A58E-E15591B5A95E> /System/Library/PrivateFrameworks/Heimdal.framework/Versions/A/Heimdal
+    0x7fff8afda000 -     0x7fff8b1d446f  libobjc.A.dylib (647) <759E155D-BC42-3D4E-869B-6F57D477177C> /usr/lib/libobjc.A.dylib
+    0x7fff8b1d6000 -     0x7fff8b1defe7  libcldcpuengine.dylib (2.4.5) <6CC680F9-0D13-333B-B151-F0D9C631A1E5> /System/Library/Frameworks/OpenCL.framework/Versions/A/Libraries/libcldcpuengine.dylib
+    0x7fff8b1df000 -     0x7fff8b1e5ff7  libsystem_networkextension.dylib (167.40.3) <BA58B30B-8377-3B0A-8AE3-4F84021D9D4E> /usr/lib/system/libsystem_networkextension.dylib
+    0x7fff8b1e6000 -     0x7fff8b1e8ff7  com.apple.securityhi (9.0 - 55006) <2B9C0BCB-7D82-39C2-A99F-7B9E1522CDD6> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/SecurityHI.framework/Versions/A/SecurityHI
+    0x7fff8b1f8000 -     0x7fff8b297e27  com.apple.AppleJPEG (1.0 - 1) <6627DDD9-A8FE-3968-B23A-B6A29AA3919A> /System/Library/PrivateFrameworks/AppleJPEG.framework/Versions/A/AppleJPEG
+    0x7fff8b2f5000 -     0x7fff8b30fff7  liblzma.5.dylib (7) <1D03E875-A7C0-3028-814C-3C27F7B7C079> /usr/lib/liblzma.5.dylib
+    0x7fff8b310000 -     0x7fff8b31bff7  libkxld.dylib (2782.40.9) <2ADAE067-78A0-371E-A5A8-1E7C892D193C> /usr/lib/system/libkxld.dylib
+    0x7fff8b359000 -     0x7fff8b360fff  com.apple.network.statistics.framework (1.2 - 1) <61B311D1-7F15-35B3-80D4-99B8BE90ACD9> /System/Library/PrivateFrameworks/NetworkStatistics.framework/Versions/A/NetworkStatistics
+    0x7fff8b361000 -     0x7fff8b39bffb  com.apple.DebugSymbols (115 - 115) <6F03761D-7C3A-3C80-8031-AA1C1AD7C706> /System/Library/PrivateFrameworks/DebugSymbols.framework/Versions/A/DebugSymbols
+    0x7fff8b408000 -     0x7fff8b42cff7  com.apple.quartzfilters (1.10.0 - 1.10.0) <1AE50F4A-0098-34E7-B24D-DF7CB94073CE> /System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuartzFilters.framework/Versions/A/QuartzFilters
+    0x7fff8b42d000 -     0x7fff8b431fff  libspindump.dylib (182.4) <929670EB-4963-3496-AD24-8B50E388803C> /usr/lib/libspindump.dylib
+    0x7fff8b432000 -     0x7fff8b45afff  libRIP.A.dylib (788.3) <6AB1CA86-38C8-33E3-AC07-3A065666E0F9> /System/Library/Frameworks/CoreGraphics.framework/Versions/A/Resources/libRIP.A.dylib
+    0x7fff8b45b000 -     0x7fff8b466fff  libcommonCrypto.dylib (60061.30.1) <E789748D-F9A7-3CFF-B317-90DF348B1E95> /usr/lib/system/libcommonCrypto.dylib
+    0x7fff8c45e000 -     0x7fff8c48dfff  com.apple.securityinterface (10.0 - 55058) <21F38170-2D3D-3FA2-B0EC-379482AFA5E4> /System/Library/Frameworks/SecurityInterface.framework/Versions/A/SecurityInterface
+    0x7fff8c48e000 -     0x7fff8c48ffff  libDiagnosticMessagesClient.dylib (100) <2EE8E436-5CDC-34C5-9959-5BA218D507FB> /usr/lib/libDiagnosticMessagesClient.dylib
+    0x7fff8c490000 -     0x7fff8c491ff7  com.apple.AddressBook.ContactsData (9.0 - 1579) <FF9C31DD-7839-35FB-AE66-21AEF63583EF> /System/Library/PrivateFrameworks/ContactsData.framework/Versions/A/ContactsData
+    0x7fff8c492000 -     0x7fff8c4d8ff7  libFontRegistry.dylib (134.1) <CE41D8C2-BEED-345C-BC4F-3775CC06C672> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Resources/libFontRegistry.dylib
+    0x7fff8c4d9000 -     0x7fff8c4f9ff7  com.apple.MultitouchSupport.framework (264.6 - 264.6) <1539F1F6-6334-37F3-9C52-02EFFBF4835D> /System/Library/PrivateFrameworks/MultitouchSupport.framework/Versions/A/MultitouchSupport
+    0x7fff8c4fa000 -     0x7fff8c533fff  com.apple.AirPlaySupport (2.0 - 215.18) <A7730005-A538-30E8-815B-727957D74C89> /System/Library/PrivateFrameworks/AirPlaySupport.framework/Versions/A/AirPlaySupport
+    0x7fff8c54e000 -     0x7fff8c585ffb  com.apple.LDAPFramework (2.4.28 - 194.5) <CAFB9695-000F-34EA-8DF5-09996929C26A> /System/Library/Frameworks/LDAP.framework/Versions/A/LDAP
+    0x7fff8c58f000 -     0x7fff8c591fff  libquarantine.dylib (76.20.1) <7AF90041-2768-378A-925A-D83161863642> /usr/lib/system/libquarantine.dylib
+    0x7fff8c592000 -     0x7fff8c594fff  com.apple.CoreDuetDebugLogging (1.0 - 1) <9A6E5710-EA99-366E-BF40-9A65EC1B46A1> /System/Library/PrivateFrameworks/CoreDuetDebugLogging.framework/Versions/A/CoreDuetDebugLogging
+    0x7fff8c595000 -     0x7fff8c596ff7  com.apple.print.framework.Print (10.0 - 265) <3BC4FE7F-78A0-3E57-8F4C-520E7EFD36FA> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/Print.framework/Versions/A/Print
+    0x7fff8c597000 -     0x7fff8cdf6ff7  com.apple.CoreGraphics (1.600.0 - 788.3) <875FBF24-D90E-36B1-9F7A-AF984E8943D9> /System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics
+    0x7fff8cdfd000 -     0x7fff8cdfefff  libsystem_secinit.dylib (18) <581DAD0F-6B63-3A48-B63B-917AF799ABAA> /usr/lib/system/libsystem_secinit.dylib
+    0x7fff8d01c000 -     0x7fff8d083ff7  com.apple.framework.CoreWiFi (3.0 - 300.4) <19269C1D-EB29-384A-83F3-7DDDEB7D9DAD> /System/Library/PrivateFrameworks/CoreWiFi.framework/Versions/A/CoreWiFi
+    0x7fff8d084000 -     0x7fff8d088fff  com.apple.CommonPanels (1.2.6 - 96) <F9ECC8AF-D9CA-3350-AFB4-5113A9B789A5> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/CommonPanels.framework/Versions/A/CommonPanels
+    0x7fff8d089000 -     0x7fff8d0c4fff  com.apple.Symbolication (1.4 - 56045) <D64571B1-4483-3FE2-BD67-A91360F79727> /System/Library/PrivateFrameworks/Symbolication.framework/Versions/A/Symbolication
+    0x7fff8d0d9000 -     0x7fff8d15aff7  com.apple.CoreUtils (1.1 - 110.1) <3808CBC5-1DF1-3821-8AAE-57C30D4F514B> /System/Library/PrivateFrameworks/CoreUtils.framework/Versions/A/CoreUtils
+    0x7fff8d16e000 -     0x7fff8d176fff  libMatch.1.dylib (24) <C917279D-33C2-38A8-9BDD-18F3B24E6FBD> /usr/lib/libMatch.1.dylib
+    0x7fff8d2c0000 -     0x7fff8d2cfff7  com.apple.ToneLibrary (1.0 - 1) <179C7D61-CB88-3CE3-9F06-4D60D13D616C> /System/Library/PrivateFrameworks/ToneLibrary.framework/Versions/A/ToneLibrary
+    0x7fff8d2d0000 -     0x7fff8d63bfff  com.apple.VideoToolbox (1.0 - 1562.238) <510956DF-E324-3974-A83B-C0C74A6F812C> /System/Library/Frameworks/VideoToolbox.framework/Versions/A/VideoToolbox
+    0x7fff8d63c000 -     0x7fff8d764ff7  com.apple.coreui (2.1 - 308.6) <9E0E9C6A-68F5-34C1-A17C-96226D401D4D> /System/Library/PrivateFrameworks/CoreUI.framework/Versions/A/CoreUI
+    0x7fff8d765000 -     0x7fff8d78bfff  com.apple.ChunkingLibrary (2.1 - 163.6) <29D4CB95-42EF-34C6-8182-BDB6F7BB1E79> /System/Library/PrivateFrameworks/ChunkingLibrary.framework/Versions/A/ChunkingLibrary
+    0x7fff8d78c000 -     0x7fff8d7bdfff  libtidy.A.dylib (15.15) <37FC944D-271A-386A-9ADD-FA33AD48F96D> /usr/lib/libtidy.A.dylib
+    0x7fff8d7db000 -     0x7fff8d7dbfff  com.apple.ApplicationServices (48 - 48) <5BF7910B-C328-3BF8-BA4F-CE52B574CE01> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices
+    0x7fff8d7dc000 -     0x7fff8d7e8ff7  com.apple.OpenDirectory (10.10 - 187) <D993F138-DAD1-3640-94DE-8C9FEFBF158D> /System/Library/Frameworks/OpenDirectory.framework/Versions/A/OpenDirectory
+    0x7fff8d7e9000 -     0x7fff8d7f6ff7  com.apple.SpeechRecognitionCore (2.1.2 - 2.1.2) <551322E2-C1E4-3378-A218-F362985E3E3C> /System/Library/PrivateFrameworks/SpeechRecognitionCore.framework/Versions/A/SpeechRecognitionCore
+    0x7fff8d7f7000 -     0x7fff8d7fffff  libsystem_dnssd.dylib (576.30.4) <0CEB5910-843F-315C-A1DE-5D955A48A045> /usr/lib/system/libsystem_dnssd.dylib
+    0x7fff8d80e000 -     0x7fff8d827ff7  com.apple.CFOpenDirectory (10.10 - 187) <3FCEE6F7-A8C6-3222-B22D-8AD290E477E2> /System/Library/Frameworks/OpenDirectory.framework/Versions/A/Frameworks/CFOpenDirectory.framework/Versions/A/CFOpenDirectory
+    0x7fff8d85a000 -     0x7fff8d87eff7  com.apple.Sharing (328.17 - 328.17) <AD5E243A-B79F-3D7B-800B-A2C99A1CFEF1> /System/Library/PrivateFrameworks/Sharing.framework/Versions/A/Sharing
+    0x7fff8d87f000 -     0x7fff8d883fff  com.apple.TCC (1.0 - 1) <CCA42EE2-3400-3444-9486-BC454E60D944> /System/Library/PrivateFrameworks/TCC.framework/Versions/A/TCC
+    0x7fff8d8ca000 -     0x7fff8d91bff7  com.apple.AppleVAFramework (5.0.31 - 5.0.31) <17C35538-7C2B-3735-A1B3-E8487EED0668> /System/Library/PrivateFrameworks/AppleVA.framework/Versions/A/AppleVA
+    0x7fff8d91c000 -     0x7fff8d928fff  com.apple.HelpData (2.1.4 - 90) <02C6B7E6-1CC4-30E8-AD04-2794BECCF99C> /System/Library/PrivateFrameworks/HelpData.framework/Versions/A/HelpData
+    0x7fff8d929000 -     0x7fff8d94eff7  libJPEG.dylib (1239) <9AC25FD0-4190-3656-B8F5-6241D17105D0> /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJPEG.dylib
+    0x7fff8dbcf000 -     0x7fff8dbd4ff7  libunwind.dylib (35.3) <BE7E51A0-B6EA-3A54-9CCA-9D88F683A6D6> /usr/lib/system/libunwind.dylib
+    0x7fff8dbd5000 -     0x7fff8dbdafff  libsystem_stats.dylib (163.30.2) <D0E96837-3CF6-323D-B711-6DF6F660E530> /usr/lib/system/libsystem_stats.dylib
+    0x7fff8dca7000 -     0x7fff8dcd7ff3  com.apple.CoreAVCHD (5.7.5 - 5750.4.1) <3E51287C-E97D-3886-BE88-8F6872400876> /System/Library/PrivateFrameworks/CoreAVCHD.framework/Versions/A/CoreAVCHD
+    0x7fff8dcd8000 -     0x7fff8dd50ff7  com.apple.SystemConfiguration (1.14.4 - 1.14) <3DFFD7F7-BD23-3F4C-A209-C4A0D99F6573> /System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration
+    0x7fff8dd51000 -     0x7fff8dd60fff  com.apple.LangAnalysis (1.7.0 - 1.7.0) <D1E527E4-C561-352F-9457-E8C50232793C> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/LangAnalysis.framework/Versions/A/LangAnalysis
+    0x7fff8dd7a000 -     0x7fff8ddabff7  com.apple.ProtectedCloudStorage (1.0 - 1) <9D76F2E0-C28A-3DBC-A91F-E87888D46BF0> /System/Library/PrivateFrameworks/ProtectedCloudStorage.framework/Versions/A/ProtectedCloudStorage
+    0x7fff8ddac000 -     0x7fff8dde4fff  libsystem_network.dylib (412.20.3) <6105C134-6722-3C0A-A4CE-5E1261E2E1CC> /usr/lib/system/libsystem_network.dylib
+    0x7fff8e044000 -     0x7fff8e047ff7  com.apple.AppleSystemInfo (3.1.5 - 3.1.5) <BCC15965-7869-34F4-9019-9D0A41DD6AFF> /System/Library/PrivateFrameworks/AppleSystemInfo.framework/Versions/A/AppleSystemInfo
+    0x7fff8e048000 -     0x7fff8e0d9ff7  libCoreStorage.dylib (471.30.1) <9D95399F-1AC5-325F-8337-6E13AD99E44B> /usr/lib/libCoreStorage.dylib
+    0x7fff8e0da000 -     0x7fff8e0e6fff  com.apple.speech.synthesis.framework (5.3.11 - 5.3.11) <DFC7FD85-F1B0-317C-8513-722570CB8FB9> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/SpeechSynthesis
+    0x7fff8e0e7000 -     0x7fff8e0f0fff  libsystem_pthread.dylib (105.40.1) <ACE90967-ECD0-3251-AEEB-461E3C6414F7> /usr/lib/system/libsystem_pthread.dylib
+    0x7fff8e0f1000 -     0x7fff8e0fcff7  libcsfde.dylib (471.30.1) <A62AE3D8-E2A6-314A-BF45-804003BE0AC9> /usr/lib/libcsfde.dylib
+    0x7fff8e0fd000 -     0x7fff8e112fff  com.apple.ToneKit (1.0 - 1) <25D0FF56-B802-359D-9CA1-D530F4890D87> /System/Library/PrivateFrameworks/ToneKit.framework/Versions/A/ToneKit
+    0x7fff8e113000 -     0x7fff8e2c2fff  GLEngine (11.1.2) <8A8153B1-94CE-3EC1-9840-441DA7217BA9> /System/Library/Frameworks/OpenGL.framework/Versions/A/Resources/GLEngine.bundle/GLEngine
+    0x7fff8e2c3000 -     0x7fff8e542ff7  com.apple.CoreData (111 - 526.3) <5A27E0D8-5E5A-335B-B3F6-2601C7B976FA> /System/Library/Frameworks/CoreData.framework/Versions/A/CoreData
+    0x7fff8e543000 -     0x7fff8e54cff7  libsystem_notify.dylib (133.1.1) <61147800-F320-3DAA-850C-BADF33855F29> /usr/lib/system/libsystem_notify.dylib
+    0x7fff8e56f000 -     0x7fff8e57aff7  com.apple.DirectoryService.Framework (10.10 - 187) <F5B30ACE-57D9-31EA-82F9-98F175B277D1> /System/Library/Frameworks/DirectoryService.framework/Versions/A/DirectoryService
+    0x7fff8e57b000 -     0x7fff8e5e2ffb  com.apple.datadetectorscore (6.0 - 396.1.2) <D04A8016-B2AD-33A2-8A8E-5793968A8370> /System/Library/PrivateFrameworks/DataDetectorsCore.framework/Versions/A/DataDetectorsCore
+    0x7fff8e5e3000 -     0x7fff8e9f0ff7  libLAPACK.dylib (1128) <F9201AE7-B031-36DB-BCF8-971E994EF7C1> /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib
+    0x7fff8e9f1000 -     0x7fff8e9f6ff7  libmacho.dylib (862) <126CA2ED-DE91-308F-8881-B9DAEC3C63B6> /usr/lib/system/libmacho.dylib
+    0x7fff8e9f7000 -     0x7fff8e9f8ffb  libremovefile.dylib (35) <3485B5F4-6CE8-3C62-8DFD-8736ED6E8531> /usr/lib/system/libremovefile.dylib
+    0x7fff8ea52000 -     0x7fff8ea7dff3  libarchive.2.dylib (30) <8CBB4416-EBE9-3574-8ADC-44655D245F39> /usr/lib/libarchive.2.dylib
+    0x7fff8ea7e000 -     0x7fff8ea99ff7  libCRFSuite.dylib (34) <D64842BE-7BD4-3D0C-9842-1D202F7C2A51> /usr/lib/libCRFSuite.dylib
+    0x7fff8ea9a000 -     0x7fff8eaa7ff3  com.apple.ProtocolBuffer (1 - 228.0.1) <3429EB06-9F0E-355F-B9AB-F72879177398> /System/Library/PrivateFrameworks/ProtocolBuffer.framework/Versions/A/ProtocolBuffer
+    0x7fff8eaa8000 -     0x7fff8eac4fff  com.apple.GenerationalStorage (2.0 - 209.11) <9FF8DD11-25FB-3047-A5BF-9415339B3EEC> /System/Library/PrivateFrameworks/GenerationalStorage.framework/Versions/A/GenerationalStorage
+    0x7fff8f43e000 -     0x7fff8f743ff3  com.apple.HIToolbox (2.1.1 - 758.7) <E3129A67-BDF9-333D-9C9C-A95C8F0EF71C> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox
+    0x7fff8f744000 -     0x7fff8f751fff  libxar.1.dylib (255) <7CD69BB5-97BA-3858-8A8B-2F33F129E6E7> /usr/lib/libxar.1.dylib
+    0x7fff8f84a000 -     0x7fff8f897ff7  com.apple.print.framework.PrintCore (10.3 - 451.1) <DE992474-0841-38A1-B4F6-46D653E454D5> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/PrintCore
+    0x7fff8f8f5000 -     0x7fff8f91aff7  libPng.dylib (1239) <BBB9FB25-3CA9-38AF-B88C-D6734693FEA1> /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libPng.dylib
+    0x7fff8f91b000 -     0x7fff8f9c2fff  com.apple.PDFKit (3.1 - 3.1) <D410CE57-6227-31D8-9F39-92583E552EA8> /System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/PDFKit.framework/Versions/A/PDFKit
+    0x7fff8f9c3000 -     0x7fff8fa0dfff  com.apple.HIServices (1.22 - 523) <E2F3C5FF-8C50-3E4F-BE63-77A700466663> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/HIServices
+    0x7fff8fb26000 -     0x7fff8fb6cff7  libauto.dylib (186) <A260789B-D4D8-316A-9490-254767B8A5F1> /usr/lib/libauto.dylib
+    0x7fff8fb6d000 -     0x7fff8fbe6fe7  libcorecrypto.dylib (233.30.1) <5779FFA0-4D9A-3AD4-B7F2-618227621DC8> /usr/lib/system/libcorecrypto.dylib
+    0x7fff8fc5f000 -     0x7fff8fc67ff7  com.apple.AppleSRP (5.0 - 1) <68F0C577-ED96-34F2-B701-CE3023367D4D> /System/Library/PrivateFrameworks/AppleSRP.framework/Versions/A/AppleSRP
+    0x7fff8fc68000 -     0x7fff8fc7eff7  libsystem_asl.dylib (267) <F153AC5B-0542-356E-88C8-20A62CA704E2> /usr/lib/system/libsystem_asl.dylib
+    0x7fff8fc7f000 -     0x7fff8fc83fff  libpam.2.dylib (20) <E805398D-9A92-31F8-8005-8DC188BD8B6E> /usr/lib/libpam.2.dylib
+    0x7fff8fcaa000 -     0x7fff8fcadff7  libdyld.dylib (353.2.3) <CFBBE540-D503-3AFC-B5D6-644F1E69949B> /usr/lib/system/libdyld.dylib
+    0x7fff8fcae000 -     0x7fff8fcb4ff7  com.apple.XPCService (2.0 - 1) <AA4A5393-1F5D-3465-A417-0414B95DC052> /System/Library/PrivateFrameworks/XPCService.framework/Versions/A/XPCService
+    0x7fff8fd10000 -     0x7fff8fd10fff  com.apple.CoreServices (62 - 62) <C69DA8A7-B536-34BF-A93F-1C170E2C6D58> /System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices
+    0x7fff8fd11000 -     0x7fff8fd1cff7  com.apple.CrashReporterSupport (10.10 - 631) <C44259AC-0A1C-3EC5-99AC-48CB520A709D> /System/Library/PrivateFrameworks/CrashReporterSupport.framework/Versions/A/CrashReporterSupport
+    0x7fff8fd1d000 -     0x7fff8fd6efff  com.apple.audio.CoreAudio (4.3.0 - 4.3.0) <450293F7-DAE7-3DD0-8F7C-71FC2FD72627> /System/Library/Frameworks/CoreAudio.framework/Versions/A/CoreAudio
+    0x7fff8fdde000 -     0x7fff8fdecfff  com.apple.AddressBook.ContactsFoundation (9.0 - 1579) <34ED9046-0157-399F-9742-2FC2D098E368> /System/Library/PrivateFrameworks/ContactsFoundation.framework/Versions/A/ContactsFoundation
+    0x7fff8fe67000 -     0x7fff8fe7aff7  com.apple.CoreBluetooth (1.0 - 1) <8D7BA9BA-EB36-307A-9119-0B3D9732C953> /System/Library/Frameworks/CoreBluetooth.framework/Versions/A/CoreBluetooth
+    0x7fff8fe7b000 -     0x7fff8fea5fff  GLRendererFloat (11.1.2) <50EC0CD3-5CAB-3183-9818-FC4A405B681F> /System/Library/Frameworks/OpenGL.framework/Versions/A/Resources/GLRendererFloat.bundle/GLRendererFloat
+    0x7fff8fea6000 -     0x7fff90a27ff7  com.apple.AppKit (6.9 - 1348.17) <E485D56D-3E72-34B7-99BB-BFDEE2D07BF5> /System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+    0x7fff90cc0000 -     0x7fff90cc2fff  libsystem_configuration.dylib (699.40.2) <56F94DCE-DBDE-3615-8F07-DE6270D9F8BE> /usr/lib/system/libsystem_configuration.dylib
+    0x7fff90cc3000 -     0x7fff90d2ffff  com.apple.framework.CoreWLAN (5.0 - 500.35.2) <03697149-1CDD-32FF-B564-1C1EF5E9E5C3> /System/Library/Frameworks/CoreWLAN.framework/Versions/A/CoreWLAN
+    0x7fff90dd5000 -     0x7fff91106fff  com.apple.Foundation (6.9 - 1154) <49EE64E1-9F53-35D1-A481-2EFE2789B254> /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+    0x7fff91107000 -     0x7fff9124bff7  com.apple.QTKit (7.7.3 - 2890.7) <267DFB98-4959-3EDE-B76B-8B2F12F41A17> /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit
+    0x7fff91271000 -     0x7fff9128cfff  com.apple.AppleVPAFramework (1.4.5 - 1.4.5) <A6421B0B-6D4D-3E64-AC61-DDB04ED7CFF0> /System/Library/PrivateFrameworks/AppleVPA.framework/Versions/A/AppleVPA
+    0x7fff9128d000 -     0x7fff9129dff7  libbsm.0.dylib (34) <A3A2E56C-2B65-37C7-B43A-A1F926E1A0BB> /usr/lib/libbsm.0.dylib
+    0x7fff9134c000 -     0x7fff913bbfff  com.apple.SearchKit (1.4.0 - 1.4.0) <80883BD1-C9BA-3794-A20E-476F94DD89A9> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SearchKit.framework/Versions/A/SearchKit
+    0x7fff913bc000 -     0x7fff913bdfff  com.apple.TrustEvaluationAgent (2.0 - 25) <2D61A2C3-C83E-3A3F-8EC1-736DBEC250AB> /System/Library/PrivateFrameworks/TrustEvaluationAgent.framework/Versions/A/TrustEvaluationAgent
+    0x7fff9147e000 -     0x7fff91487fff  libGFXShared.dylib (11.1.2) <7F9F6175-E993-3014-8C9B-1F08CE7C75A2> /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGFXShared.dylib
+    0x7fff91488000 -     0x7fff91493fff  com.apple.CommerceCore (1.0 - 376.29) <1058502F-8C78-36E1-914A-6403A2231FBA> /System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Frameworks/CommerceCore.framework/Versions/A/CommerceCore
+    0x7fff91494000 -     0x7fff914abff7  libLinearAlgebra.dylib (1128) <E78CCBAA-A999-3B65-8EC9-06DB15E67C37> /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLinearAlgebra.dylib
+    0x7fff914ac000 -     0x7fff91613ffb  com.apple.audio.toolbox.AudioToolbox (1.12 - 1.12) <5678FC94-456A-3F5F-BA9A-10EB6E462997> /System/Library/Frameworks/AudioToolbox.framework/Versions/A/AudioToolbox
+    0x7fff9161d000 -     0x7fff9177efff  com.apple.avfoundation (2.0 - 889.210) <E1F0F203-6EA6-3CFA-BC6C-F372F273D6C5> /System/Library/Frameworks/AVFoundation.framework/Versions/A/AVFoundation
+    0x7fff9177f000 -     0x7fff91784ff7  com.apple.MediaAccessibility (1.0 - 61) <00A3E0B6-79AC-387E-B282-AADFBD5722F6> /System/Library/Frameworks/MediaAccessibility.framework/Versions/A/MediaAccessibility
+    0x7fff91785000 -     0x7fff91878ff7  libJP2.dylib (1239) <D346D67E-78A2-309D-94BB-C7C5FEC28785> /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJP2.dylib
+    0x7fff91879000 -     0x7fff9190fff7  com.apple.cloudkit.CloudKit (283.67.4 - 283.67.4) <EA6E4B2C-A3AA-3636-B9C3-F61D3EFFB82B> /System/Library/Frameworks/CloudKit.framework/Versions/A/CloudKit
+    0x7fff9191b000 -     0x7fff91937ff7  libsystem_malloc.dylib (53.30.1) <DDA8928B-CC0D-3255-BD8A-3FEA0982B890> /usr/lib/system/libsystem_malloc.dylib
+    0x7fff91995000 -     0x7fff919beffb  libxslt.1.dylib (13) <AED1143F-B848-3E73-81ED-71356F25F084> /usr/lib/libxslt.1.dylib
+    0x7fff91a2f000 -     0x7fff91a2ffff  com.apple.quartzframework (1.5 - 1.5) <26C982A3-2FC3-3F50-B5F4-3C545C3BAC10> /System/Library/Frameworks/Quartz.framework/Versions/A/Quartz
+    0x7fff91a30000 -     0x7fff91a33fff  com.apple.xpc.ServiceManagement (1.0 - 1) <A95A15CD-3B21-3513-AFF8-1D7DE3DBFA12> /System/Library/Frameworks/ServiceManagement.framework/Versions/A/ServiceManagement
+    0x7fff91a34000 -     0x7fff91a67fff  com.apple.MediaKit (16 - 757.2) <2912E5C2-085F-3FE2-8531-23B6E894B0F0> /System/Library/PrivateFrameworks/MediaKit.framework/Versions/A/MediaKit
+    0x7fff91a68000 -     0x7fff91a6cfff  com.apple.LoginUICore (3.2 - 3.2) <417954C5-1675-31A8-9631-6B56E9AA3E93> /System/Library/PrivateFrameworks/LoginUIKit.framework/Versions/A/Frameworks/LoginUICore.framework/Versions/A/LoginUICore
+    0x7fff91a6d000 -     0x7fff91cd7ff7  com.apple.imageKit (2.6.1 - 850) <612201FE-768E-386B-82E3-764038B40120> /System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/ImageKit.framework/Versions/A/ImageKit
+    0x7fff91cd8000 -     0x7fff91cdaff7  libutil.dylib (38) <471AD65E-B86E-3C4A-8ABD-B8665A2BCE3F> /usr/lib/libutil.dylib
+    0x7fff91cea000 -     0x7fff91ceefff  com.apple.IOAccelerator (156.16 - 156.16) <12DE1474-4B2A-3D7D-ACF9-DDAF66A6936A> /System/Library/PrivateFrameworks/IOAccelerator.framework/Versions/A/IOAccelerator
+    0x7fff91d9c000 -     0x7fff91dc7fff  libc++abi.dylib (125) <88A22A0F-87C6-3002-BFBA-AC0F2808B8B9> /usr/lib/libc++abi.dylib
+    0x7fff91ee3000 -     0x7fff91ee6ff7  com.apple.Mangrove (1.0 - 1) <6326024D-5C8D-3F59-9468-ACA1E01BC70C> /System/Library/PrivateFrameworks/Mangrove.framework/Versions/A/Mangrove
+    0x7fff91eef000 -     0x7fff91fe1ff3  libxml2.2.dylib (26.1) <3FBA890F-2850-3A45-87EA-DB6892BDEB60> /usr/lib/libxml2.2.dylib
+    0x7fff91fe2000 -     0x7fff92227ff7  com.apple.AddressBook.framework (9.0 - 1579) <A31956C5-AA13-35E6-B553-6BDF33F35103> /System/Library/Frameworks/AddressBook.framework/Versions/A/AddressBook
+    0x7fff92228000 -     0x7fff923d8ff3  com.apple.QuartzCore (1.10 - 361.19) <F815B60E-75E3-3263-BE93-27A49882CF58> /System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore
+    0x7fff923d9000 -     0x7fff9270cff7  libmecabra.dylib (666.7) <0ED8AE5E-7A5B-34A6-A2EE-2B852E60E1E2> /usr/lib/libmecabra.dylib
+    0x7fff9270d000 -     0x7fff9289cfff  libGLProgrammability.dylib (11.1.2) <11882D43-25B4-331D-9428-C97F4A88DA21> /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLProgrammability.dylib
+    0x7fff9289d000 -     0x7fff9289dff7  libunc.dylib (29) <5676F7EA-C1DF-329F-B006-D2C3022B7D70> /usr/lib/system/libunc.dylib
+    0x7fff9289e000 -     0x7fff928fdfff  com.apple.AE (681.5 - 681.7) <2BF39455-1CDD-392C-824A-9972C6B1FB57> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE
+    0x7fff928fe000 -     0x7fff92925fff  com.apple.shortcut (2.14 - 2.14) <0E9228EC-E688-3E83-9516-5211FFEA923E> /System/Library/PrivateFrameworks/Shortcut.framework/Versions/A/Shortcut
+    0x7fff92926000 -     0x7fff92a18ff7  libiconv.2.dylib (42) <2A06D02F-8B76-3864-8D96-64EF5B40BC6C> /usr/lib/libiconv.2.dylib
+    0x7fff92aec000 -     0x7fff92aecfff  com.apple.Carbon (154 - 157) <9BF51672-1684-3FDE-A561-FC59A2864EF8> /System/Library/Frameworks/Carbon.framework/Versions/A/Carbon
+    0x7fff92caa000 -     0x7fff92d07fff  com.apple.QuickLookFramework (5.0 - 675.43) <506D60B4-B188-3D0A-9187-0404A60A9B06> /System/Library/Frameworks/QuickLook.framework/Versions/A/QuickLook
+    0x7fff92d08000 -     0x7fff92d38fff  libsystem_m.dylib (3086.1) <1E12AB45-6D96-36D0-A226-F24D9FB0D9D6> /usr/lib/system/libsystem_m.dylib
+    0x7fff92d39000 -     0x7fff92da5ff3  com.apple.MMCS (1.3 - 327.5) <FC998246-ED60-334D-9E94-453F35EF9C78> /System/Library/PrivateFrameworks/MMCS.framework/Versions/A/MMCS
+    0x7fff92da6000 -     0x7fff92dadff7  libcompiler_rt.dylib (35) <BF8FC133-EE10-3DA6-9B90-92039E28678F> /usr/lib/system/libcompiler_rt.dylib
+    0x7fff9304c000 -     0x7fff9310cff7  com.apple.backup.framework (1.6.5 - 1.6.5) <86396038-33EA-3046-9F70-093A3D6407D4> /System/Library/PrivateFrameworks/Backup.framework/Versions/A/Backup
+    0x7fff9310d000 -     0x7fff9310dfff  libOpenScriptingUtil.dylib (162.2) <D6A2216D-ADB2-3F24-AD30-F6D00829F545> /usr/lib/libOpenScriptingUtil.dylib
+    0x7fff9310e000 -     0x7fff9315bff3  com.apple.CoreMediaIO (601.0 - 4760) <4D52EBBF-5DE1-3778-BDE5-DE8540E7DE5C> /System/Library/Frameworks/CoreMediaIO.framework/Versions/A/CoreMediaIO
+    0x7fff9315c000 -     0x7fff9315cfff  com.apple.Accelerate.vecLib (3.10 - vecLib 3.10) <B92888D0-ED3F-3430-8F3A-6E56FD16C5F1> /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib
+    0x7fff9316a000 -     0x7fff9316cfff  libRadiance.dylib (1239) <648BCB0C-55B5-3197-8F5F-81D5994B4EE7> /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libRadiance.dylib
+    0x7fff931ff000 -     0x7fff93207ff7  com.apple.icloud.FindMyDevice (1.0 - 1) <9CE67F85-2BA8-3093-97BA-07BF5C04A5D6> /System/Library/PrivateFrameworks/FindMyDevice.framework/Versions/A/FindMyDevice
+    0x7fff93208000 -     0x7fff93257ff7  libstdc++.6.dylib (104.1) <803F6AC8-87DC-3E24-9E80-729B551F6FFF> /usr/lib/libstdc++.6.dylib
+    0x7fff93258000 -     0x7fff932ecfff  com.apple.ink.framework (10.9 - 213) <8E029630-1530-3734-A446-13353F0E7AC5> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/Ink.framework/Versions/A/Ink
+    0x7fff932ed000 -     0x7fff936c4fe7  com.apple.CoreAUC (211.1.0 - 211.1.0) <12645629-E065-388E-A6B5-094A240578CE> /System/Library/PrivateFrameworks/CoreAUC.framework/Versions/A/CoreAUC
+    0x7fff936c5000 -     0x7fff93bb5fff  com.apple.MediaToolbox (1.0 - 1562.238) <BF6A868E-2F7D-371F-B14D-89C23EE4EF2B> /System/Library/Frameworks/MediaToolbox.framework/Versions/A/MediaToolbox
+    0x7fff93be6000 -     0x7fff93bf7ff7  libz.1.dylib (55) <88C7C7DE-04B8-316F-8B74-ACD9F3DE1AA1> /usr/lib/libz.1.dylib
+    0x7fff93bf8000 -     0x7fff93bf9ff7  libodfde.dylib (22) <52D0ABCD-F464-362C-86EA-ACA10993F556> /usr/lib/libodfde.dylib
+    0x7fff93f26000 -     0x7fff93f37ff3  libsystem_coretls.dylib (35.40.1) <155DA0A9-2046-332E-BFA3-D7974A51F731> /usr/lib/system/libsystem_coretls.dylib
+    0x7fff93f38000 -     0x7fff93f41fff  com.apple.DisplayServicesFW (2.9 - 372.1) <30E61754-D83C-330A-AE60-533F27BEBFF5> /System/Library/PrivateFrameworks/DisplayServices.framework/Versions/A/DisplayServices
+    0x7fff93f42000 -     0x7fff93fc6fff  com.apple.PerformanceAnalysis (1.0 - 1) <4E934EE0-5CC6-3D54-8FA2-5B8AE669D775> /System/Library/PrivateFrameworks/PerformanceAnalysis.framework/Versions/A/PerformanceAnalysis
+    0x7fff93fdd000 -     0x7fff93fdffff  com.apple.ExceptionHandling (1.5 - 10) <C3A6EB3D-C0B3-371F-99D8-AF5495498091> /System/Library/Frameworks/ExceptionHandling.framework/Versions/A/ExceptionHandling
+    0x7fff93fe0000 -     0x7fff93fe1ff7  libsystem_blocks.dylib (65) <9615D10A-FCA7-3BE4-AA1A-1B195DACE1A1> /usr/lib/system/libsystem_blocks.dylib
+    0x7fff94060000 -     0x7fff94067ff7  com.apple.phonenumbers (1.1.1 - 105) <AE39B6FE-05AB-3181-BB2A-4D50A8B392F2> /System/Library/PrivateFrameworks/PhoneNumbers.framework/Versions/A/PhoneNumbers
+    0x7fff94068000 -     0x7fff94087fff  com.apple.CoreDuet (1.0 - 1) <36AA9FD5-2685-314D-B364-3FA4688D86BD> /System/Library/PrivateFrameworks/CoreDuet.framework/Versions/A/CoreDuet
+    0x7fff94088000 -     0x7fff940b5fff  com.apple.CoreVideo (1.8 - 145.1) <18DB07E0-B927-3260-A234-636F298D1917> /System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo
+    0x7fff9414b000 -     0x7fff943c1ff7  com.apple.security (7.0 - 57031.40.6) <FCCCC4FD-043A-30CA-9997-4211CA0E9297> /System/Library/Frameworks/Security.framework/Versions/A/Security
+    0x7fff943c2000 -     0x7fff943c4fff  libCVMSPluginSupport.dylib (11.1.2) <1C5C1757-67F1-3C23-90EF-643619A0E7DC> /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCVMSPluginSupport.dylib
+    0x7fff9443d000 -     0x7fff9443ffff  libsystem_sandbox.dylib (358.20.5) <3F5E973F-C702-31AC-97BC-05F5C195683C> /usr/lib/system/libsystem_sandbox.dylib
+    0x7fff94440000 -     0x7fff94442fff  com.apple.loginsupport (1.0 - 1) <DAAD7013-A19D-3858-BFF7-DE1DAF664401> /System/Library/PrivateFrameworks/login.framework/Versions/A/Frameworks/loginsupport.framework/Versions/A/loginsupport
+    0x7fff94443000 -     0x7fff94628ff7  libicucore.A.dylib (531.48) <3CD34752-B1F9-31D2-865D-B5B0F0BE3111> /usr/lib/libicucore.A.dylib
+    0x7fff94629000 -     0x7fff946beff7  com.apple.ColorSync (4.9.0 - 4.9.0) <9150C2B7-2E6E-3509-96EA-7B3F959F049E> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ColorSync.framework/Versions/A/ColorSync
+    0x7fff94757000 -     0x7fff947b1ff7  com.apple.LanguageModeling (1.0 - 1) <ACA93FE0-A0E3-333E-AE3C-8EB7DE5F362F> /System/Library/PrivateFrameworks/LanguageModeling.framework/Versions/A/LanguageModeling
+    0x7fff947ea000 -     0x7fff94807fff  libsystem_kernel.dylib (2782.40.9) <16AD15EF-3DAE-3F63-9D26-26CCE1920762> /usr/lib/system/libsystem_kernel.dylib
+    0x7fff94808000 -     0x7fff94c38fff  com.apple.vision.FaceCore (3.1.6 - 3.1.6) <C3B823AA-C261-37D3-B4AC-C59CE91C8241> /System/Library/PrivateFrameworks/FaceCore.framework/Versions/A/FaceCore
+    0x7fff94c44000 -     0x7fff94cd0fe7  libsystem_c.dylib (1044.40.1) <F0635E0F-FE4B-34DB-ACF9-A58C1E9070E9> /usr/lib/system/libsystem_c.dylib
+    0x7fff94cd1000 -     0x7fff94cefff7  com.apple.addressbook.vCard (9.0 - 1579) <C4CDDC8B-AE35-39B8-820A-763E9C5D1794> /System/Library/PrivateFrameworks/vCard.framework/Versions/A/vCard
+    0x7fff94cf0000 -     0x7fff94d61ffb  com.apple.ApplicationServices.ATS (360 - 375.4) <A1BEBCF8-8FC8-345D-B91D-1DA5773AF5A3> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/ATS
+    0x7fff94d62000 -     0x7fff94de0fff  com.apple.CoreServices.OSServices (640.4 - 640.4) <BE8DF749-84BA-3029-AE1D-32F3993A78A4> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework/Versions/A/OSServices
+    0x7fff94de1000 -     0x7fff94debfff  com.apple.IntlPreferences (2.0 - 150.1) <79F95D7D-F64F-3A4E-8A42-AE5BF1577195> /System/Library/PrivateFrameworks/IntlPreferences.framework/Versions/A/IntlPreferences
+    0x7fff94dec000 -     0x7fff94ee0fff  libFontParser.dylib (134.7) <C49EDC56-A82A-39EF-9F20-C2342E4188ED> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Resources/libFontParser.dylib
+    0x7fff94efa000 -     0x7fff94f4dffb  libAVFAudio.dylib (118.6) <2441D4C1-D8FB-3DA9-9DD7-914E03413882> /System/Library/Frameworks/AVFoundation.framework/Versions/A/Resources/libAVFAudio.dylib
+    0x7fff94f57000 -     0x7fff94f5afff  com.apple.IOSurface (97.4 - 97.4) <AE11CFBC-4D46-30F3-BEEC-4C8131079391> /System/Library/Frameworks/IOSurface.framework/Versions/A/IOSurface
+    0x7fff94f5b000 -     0x7fff9508bfff  com.apple.UIFoundation (1.0 - 1) <466BDFA8-0B9F-3AB0-989D-F9779422926A> /System/Library/PrivateFrameworks/UIFoundation.framework/Versions/A/UIFoundation
+    0x7fff95090000 -     0x7fff95095fff  com.apple.DiskArbitration (2.6 - 2.6) <0DFF4D9B-2AC3-3B82-B5C5-30F4EFBD2DB9> /System/Library/Frameworks/DiskArbitration.framework/Versions/A/DiskArbitration
+    0x7fff95096000 -     0x7fff950a7fff  libcmph.dylib (1) <46EC3997-DB5E-38AE-BBBB-A035A54AD3C0> /usr/lib/libcmph.dylib
+    0x7fff950ab000 -     0x7fff950faff7  libcurl.4.dylib (83.40.2) <AE97ED1E-A58F-3EF0-8E88-DDC6AD409BCE> /usr/lib/libcurl.4.dylib
+    0x7fff950fb000 -     0x7fff95289fff  libBLAS.dylib (1128) <497912C1-A98E-3281-BED7-E9C751552F61> /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+    0x7fff952f8000 -     0x7fff952fcfff  libcache.dylib (69) <45E9A2E7-99C4-36B2-BEE3-0C4E11614AD1> /usr/lib/system/libcache.dylib
+    0x7fff952fd000 -     0x7fff95317ff7  libextension.dylib (55.2) <3BB019CA-199A-36AC-AA22-14B562138545> /usr/lib/libextension.dylib
+    0x7fff95318000 -     0x7fff95340fff  libsystem_info.dylib (459.40.1) <2E16C4B3-A327-3957-9C41-143911979A1E> /usr/lib/system/libsystem_info.dylib
+    0x7fff95341000 -     0x7fff95610ff3  com.apple.CoreImage (10.3.4) <C1AE8252-A95D-3BF4-83B8-BE85E979F2CB> /System/Library/Frameworks/QuartzCore.framework/Versions/A/Frameworks/CoreImage.framework/Versions/A/CoreImage
+    0x7fff95611000 -     0x7fff95641ff3  com.apple.GSS (4.0 - 2.0) <97F2A028-44CF-3188-B863-F4EEB39CBDBD> /System/Library/Frameworks/GSS.framework/Versions/A/GSS
+    0x7fff95906000 -     0x7fff9592efff  libxpc.dylib (559.40.1) <5C829202-962E-3744-8B50-00D38CC88E84> /usr/lib/system/libxpc.dylib
+    0x7fff9592f000 -     0x7fff95950fff  com.apple.framework.Apple80211 (10.3 - 1030.71.6) <C0A17391-5C8B-34B1-BD46-8D644AB57DE0> /System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Apple80211
+    0x7fff95951000 -     0x7fff95954fff  com.apple.help (1.3.3 - 46) <CA4541F4-CEF5-355C-8F1F-EA65DC1B400F> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/Help.framework/Versions/A/Help
+    0x7fff95989000 -     0x7fff95991fff  libsystem_platform.dylib (63) <64E34079-D712-3D66-9CE2-418624A5C040> /usr/lib/system/libsystem_platform.dylib
+    0x7fff95992000 -     0x7fff95996ff7  libGIF.dylib (1239) <292BB418-F5C2-3D7B-AC1D-99082A4B88F3> /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libGIF.dylib
+    0x7fff95997000 -     0x7fff959c9ff3  com.apple.frameworks.CoreDaemon (1.3 - 1.3) <C6DB0A07-F8E4-3837-BCA9-225F460EDA81> /System/Library/PrivateFrameworks/CoreDaemon.framework/Versions/B/CoreDaemon
+    0x7fff959cb000 -     0x7fff95a69fff  com.apple.Metadata (10.7.0 - 917.36) <00C4CB5D-E723-3612-84E0-439098392CDD> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata
+    0x7fff95b2c000 -     0x7fff95b3eff7  com.apple.ImageCapture (9.0 - 9.0) <7FB65DD4-56B5-35C4-862C-7A2DED991D1F> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/ImageCapture.framework/Versions/A/ImageCapture
+    0x7fff95b8e000 -     0x7fff95fe1fc7  com.apple.vImage (8.0 - 8.0) <33BE7B31-72DB-3364-B37E-C322A32748C5> /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage
+    0x7fff95fe7000 -     0x7fff95fe8fff  liblangid.dylib (117) <B54A4AA0-2E53-3671-90F5-AFF711C0EB9E> /usr/lib/liblangid.dylib
+    0x7fff9603d000 -     0x7fff96040ffb  libCGXType.A.dylib (788.3) <7CC6CD5B-AD6B-3B36-9165-BFB1E5274F69> /System/Library/Frameworks/CoreGraphics.framework/Versions/A/Resources/libCGXType.A.dylib
+    0x7fff96041000 -     0x7fff96061fff  com.apple.IconServices (47.1 - 47.1) <E83DFE3B-6541-3736-96BB-26DC5D0100F1> /System/Library/PrivateFrameworks/IconServices.framework/Versions/A/IconServices
+    0x7fff96062000 -     0x7fff96194ff7  com.apple.MediaControlSender (2.0 - 215.18) <88726256-A71E-33A8-A56C-ABA208951C92> /System/Library/PrivateFrameworks/MediaControlSender.framework/Versions/A/MediaControlSender
+    0x7fff96195000 -     0x7fff961e3ff7  com.apple.ImageCaptureCore (6.3 - 6.3) <75B5043C-9EF0-3CD2-875D-12813F0A73D3> /System/Library/Frameworks/ImageCaptureCore.framework/Versions/A/ImageCaptureCore
+    0x7fff961e4000 -     0x7fff9620eff7  libdispatch.dylib (442.1.4) <502CF32B-669B-3709-8862-08188225E4F0> /usr/lib/system/libdispatch.dylib
+    0x7fff9620f000 -     0x7fff9624fff7  libGLImage.dylib (11.1.2) <9B05F3BF-D111-3B01-B7F8-C5EF7E02000B> /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLImage.dylib
+    0x7fff96251000 -     0x7fff9626cff7  com.apple.aps.framework (4.0 - 4.0) <EAC8C347-55F4-3769-995E-B140C95553F6> /System/Library/PrivateFrameworks/ApplePushService.framework/Versions/A/ApplePushService
+    0x7fff9626d000 -     0x7fff96384fe7  libvDSP.dylib (516) <DFEDB210-49D1-3803-88A2-C61DB6A45C3D> /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib
+    0x7fff963ca000 -     0x7fff96461fff  com.apple.CoreMedia (1.0 - 1562.238) <B24BDB25-1203-380D-95B7-0A3FEB25521E> /System/Library/Frameworks/CoreMedia.framework/Versions/A/CoreMedia
+    0x7fff96462000 -     0x7fff96462fff  com.apple.audio.units.AudioUnit (1.12 - 1.12) <E5335492-7EFE-31EA-BE72-4A9CEE68D58E> /System/Library/Frameworks/AudioUnit.framework/Versions/A/AudioUnit
+    0x7fff96479000 -     0x7fff964ebfff  com.apple.framework.IOKit (2.0.2 - 1050.20.2) <09C0518C-90DF-3FC3-96D6-34D35F72C8EF> /System/Library/Frameworks/IOKit.framework/Versions/A/IOKit
+    0x7fff964ec000 -     0x7fff964f3fff  com.apple.NetFS (6.0 - 4.0) <C263C8F8-F284-3101-AC82-A97A81716063> /System/Library/Frameworks/NetFS.framework/Versions/A/NetFS
+    0x7fff964f4000 -     0x7fff965d8fff  libcrypto.0.9.8.dylib (52.40.1) <D123FC57-E2EB-3E08-A51B-6C317EA83EB5> /usr/lib/libcrypto.0.9.8.dylib
+    0x7fff9660d000 -     0x7fff96618fff  libGL.dylib (11.1.2) <FD8B7B67-1532-32A1-B369-9D7A6C1EB3ED> /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib
+    0x7fff96619000 -     0x7fff9668dffb  com.apple.securityfoundation (6.0 - 55126) <AC8ED0BD-32F0-3EB8-B7B2-9AA14E07E8AB> /System/Library/Frameworks/SecurityFoundation.framework/Versions/A/SecurityFoundation
+    0x7fff9668e000 -     0x7fff966ddff7  com.apple.opencl (2.4.2 - 2.4.2) <EB365E68-9965-3596-A40A-D1E372F3A9B3> /System/Library/Frameworks/OpenCL.framework/Versions/A/OpenCL
+    0x7fff966de000 -     0x7fff9670afff  libsandbox.1.dylib (358.20.5) <533B9C4A-6C92-3658-95B9-D30BC135796B> /usr/lib/libsandbox.1.dylib
+    0x7fff9670b000 -     0x7fff96757fff  com.apple.corelocation (1486.17 - 1615.24) <8825B3E2-E053-3E01-AE31-793443962D06> /System/Library/Frameworks/CoreLocation.framework/Versions/A/CoreLocation
+    0x7fff96758000 -     0x7fff96fe0ff7  libclh.dylib (4.0.3 - 4.0.3) <1AB88122-6ACB-35C7-A3F6-7D299C297DF2> /System/Library/Extensions/GeForceGLDriver.bundle/Contents/MacOS/libclh.dylib
+    0x7fff96fe1000 -     0x7fff96febff7  com.apple.NetAuth (5.2 - 5.2) <2BBD749A-8E18-35B8-8E48-A90347C1CCA7> /System/Library/PrivateFrameworks/NetAuth.framework/Versions/A/NetAuth
+    0x7fff96fef000 -     0x7fff96ff0ff3  libSystem.B.dylib (1213) <1866C519-C5F3-3D09-8C17-A8F703664521> /usr/lib/libSystem.B.dylib
+    0x7fff96ff1000 -     0x7fff97006ff7  com.apple.AppContainer (4.0 - 238.20.2) <2AA2EF49-9F38-31F6-8B08-8CC7C26F57F3> /System/Library/PrivateFrameworks/AppContainer.framework/Versions/A/AppContainer
+    0x7fff97007000 -     0x7fff97009fff  com.apple.EFILogin (2.0 - 2) <3BA837D8-94F5-3240-9CF7-E40DC2808446> /System/Library/PrivateFrameworks/EFILogin.framework/Versions/A/EFILogin
+    0x7fff9700a000 -     0x7fff9701cff7  com.apple.CoreDuetDaemonProtocol (1.0 - 1) <CE9FABB4-1C5D-3F9B-9BB8-5CC50C3E5E31> /System/Library/PrivateFrameworks/CoreDuetDaemonProtocol.framework/Versions/A/CoreDuetDaemonProtocol
+    0x7fff9701d000 -     0x7fff9704fff7  libTrueTypeScaler.dylib (134.7) <F416BE72-B149-3712-8894-D1F7B443A85E> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Resources/libTrueTypeScaler.dylib
+    0x7fff97050000 -     0x7fff97056fff  libsystem_trace.dylib (72.20.1) <840F5301-B55A-3078-90B9-FEFFD6CD741A> /usr/lib/system/libsystem_trace.dylib
+    0x7fff97057000 -     0x7fff97086ff7  com.apple.CoreServicesInternal (221.7.2 - 221.7.2) <B93D4775-149C-3698-B38C-9C50673D455C> /System/Library/PrivateFrameworks/CoreServicesInternal.framework/Versions/A/CoreServicesInternal
+    0x7fff971cf000 -     0x7fff971e1ff7  libsasl2.2.dylib (194.1) <35371406-75EF-304A-A073-956C40373555> /usr/lib/libsasl2.2.dylib
+    0x7fff97860000 -     0x7fff97a70ff7  com.apple.CFNetwork (720.5.7 - 720.5.7) <A47D7DD2-5903-39D0-8D27-5A7E2D119D84> /System/Library/Frameworks/CFNetwork.framework/Versions/A/CFNetwork
+    0x7fff97a71000 -     0x7fff97b2cff7  com.apple.DiscRecording (9.0 - 9000.4.2) <4655B4B8-523D-3AE6-92A0-8486A2258B3B> /System/Library/Frameworks/DiscRecording.framework/Versions/A/DiscRecording
+    0x7fff97b2e000 -     0x7fff97b2eff7  liblaunch.dylib (559.40.1) <4F81CA3A-D2CE-3030-A89D-42F3DAD7BA8F> /usr/lib/system/liblaunch.dylib
+    0x7fff97c53000 -     0x7fff97d3dff7  com.apple.QuickLookUIFramework (5.0 - 675.43) <011DEB49-0FB3-3E44-9D99-D89ADD59A3CC> /System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuickLookUI.framework/Versions/A/QuickLookUI
+    0x7fff97d3e000 -     0x7fff97e57ffb  com.apple.CoreText (352.0 - 454.10) <3293BF91-B587-3B49-A159-A04D58533F14> /System/Library/Frameworks/CoreText.framework/Versions/A/CoreText
+    0x7fff97e58000 -     0x7fff97ea3ff7  com.apple.CloudDocs (1.0 - 321.10) <A8221290-A2A5-3767-BB26-CC57AC18D4DC> /System/Library/PrivateFrameworks/CloudDocs.framework/Versions/A/CloudDocs
+    0x7fff97ea4000 -     0x7fff97f46fff  com.apple.Bluetooth (4.3.6 - 4.3.6f3) <E5DC1699-2727-329C-A843-C80CE9A6CD7B> /System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth
+    0x7fff97f47000 -     0x7fff97f4fff3  com.apple.CoreServices.FSEvents (1210.20.1 - 1210.20.1) <84F79D3E-7B5E-3C93-8479-35794A3F125E> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/FSEvents
+    0x7fff97f50000 -     0x7fff97f5bfff  com.apple.AppSandbox (4.0 - 238.20.2) <BEFAB7F2-B189-391B-9B2D-FFF3EE2B77B6> /System/Library/PrivateFrameworks/AppSandbox.framework/Versions/A/AppSandbox
+    0x7fff97f5c000 -     0x7fff97f63ff7  libCGCMS.A.dylib (788.3) <1A47CDD9-99AE-3BD2-85F1-339FC169B16E> /System/Library/Frameworks/CoreGraphics.framework/Versions/A/Resources/libCGCMS.A.dylib
+    0x7fff97f64000 -     0x7fff97f6dff3  com.apple.CommonAuth (4.0 - 2.0) <9A484EE6-0003-3AB1-AE4F-AA543BBBF53F> /System/Library/PrivateFrameworks/CommonAuth.framework/Versions/A/CommonAuth
+    0x7fff97f6e000 -     0x7fff97f7aff7  libGPUSupportMercury.dylib (11.1.2) <16B2CA57-479C-3F0F-BF87-03A2C6923D5A> /System/Library/PrivateFrameworks/GPUSupport.framework/Versions/A/Libraries/libGPUSupportMercury.dylib
+    0x7fff97f93000 -     0x7fff984a8ffb  com.apple.JavaScriptCore (10600 - 10600.8.7) <480CDC12-5A1C-321C-B32F-673F0B3BA8F9> /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/JavaScriptCore
+    0x7fff984c3000 -     0x7fff984c3fff  com.apple.Cocoa (6.8 - 21) <EAC0EA1E-3C62-3B28-A941-5D8B1E085FF8> /System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa
+    0x7fff984ec000 -     0x7fff984f1ffb  libheimdal-asn1.dylib (398.40.1) <7D2BE3DE-60F7-3A6E-A92E-DA0EF9D3417E> /usr/lib/libheimdal-asn1.dylib
+    0x7fff984f2000 -     0x7fff9852afff  com.apple.RemoteViewServices (2.0 - 99) <C9A62691-B0D9-34B7-B71C-A48B5F4DC553> /System/Library/PrivateFrameworks/RemoteViewServices.framework/Versions/A/RemoteViewServices
+    0x7fff9852b000 -     0x7fff98538ff7  libbz2.1.0.dylib (36) <2DF83FBC-5C08-39E1-94F5-C28653791B5F> /usr/lib/libbz2.1.0.dylib
+    0x7fff98539000 -     0x7fff98585ff7  libcups.2.dylib (408.2) <E8AD18F9-61E4-3791-B840-504468C25556> /usr/lib/libcups.2.dylib
+    0x7fff98586000 -     0x7fff986c9fff  libsqlite3.dylib (168.2) <BCB1F77E-2484-3EC4-A1D5-1AE90A407A23> /usr/lib/libsqlite3.dylib
+    0x7fff99173000 -     0x7fff99190ffb  libresolv.9.dylib (57) <26B38E61-298A-3C3A-82C1-3B5E98AD5E29> /usr/lib/libresolv.9.dylib
+    0x7fff991d3000 -     0x7fff991d5fff  com.apple.SecCodeWrapper (4.0 - 238.20.2) <C6C126F0-6BF4-3E29-A9B7-7BAD8D17EE4F> /System/Library/PrivateFrameworks/SecCodeWrapper.framework/Versions/A/SecCodeWrapper
+    0x7fff992e6000 -     0x7fff99423fff  com.apple.ImageIO.framework (3.3.0 - 1239) <CC904E44-45C4-389B-8FD7-4DF03C41C9EC> /System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO
+    0x7fff99424000 -     0x7fff9945ffff  com.apple.QD (301 - 301) <C4D2AD03-B839-350A-AAF0-B4A08F8BED77> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/QD
+    0x7fff99460000 -     0x7fff99536ff3  com.apple.DiskImagesFramework (10.10.5 - 398) <23E788A6-9A11-3232-A882-BA16D0C54880> /System/Library/PrivateFrameworks/DiskImages.framework/Versions/A/DiskImages
+    0x7fff99537000 -     0x7fff9955aff7  com.apple.framework.familycontrols (4.1 - 410) <E491AFDB-2E12-37D0-B093-6E93091019C4> /System/Library/PrivateFrameworks/FamilyControls.framework/Versions/A/FamilyControls
+    0x7fff995dd000 -     0x7fff99666ff7  com.apple.CoreSymbolication (3.1 - 57020.2) <FDAF88F6-7D11-37BC-B758-4B835FA657BA> /System/Library/PrivateFrameworks/CoreSymbolication.framework/Versions/A/CoreSymbolication
+    0x7fff9968c000 -     0x7fff996e7ff7  libTIFF.dylib (1239) <B09E578A-D534-3A9B-9813-DAC9A0F230C7> /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libTIFF.dylib
+    0x7fff996e8000 -     0x7fff996eaff7  libsystem_coreservices.dylib (9) <41B7C578-5A53-31C8-A96F-C73E030B0938> /usr/lib/system/libsystem_coreservices.dylib
+    0x7fff996eb000 -     0x7fff996ebff7  libkeymgr.dylib (28) <77845842-DE70-3CC5-BD01-C3D14227CED5> /usr/lib/system/libkeymgr.dylib
+    0x7fff996ec000 -     0x7fff99810ff7  com.apple.LaunchServices (644.56 - 644.56) <20AABB1C-9319-3E4D-A024-51B0DD5FCD3B> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices
+    0x7fff99811000 -     0x7fff99b13ffb  com.apple.GeoServices (1.0 - 1077.0.18) <2BBF8B44-DD46-3432-8C84-6D6AA004C233> /System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/GeoServices
+    0x7fff99b14000 -     0x7fff99b2eff7  com.apple.Kerberos (3.0 - 1) <7760E0C2-A222-3709-B2A6-B692D900CEB1> /System/Library/Frameworks/Kerberos.framework/Versions/A/Kerberos
+    0x7fff99b2f000 -     0x7fff99b45ff7  com.apple.CoreMediaAuthoring (2.2 - 951) <C3E7D4C1-400D-34FA-9FE1-8C68C03CE969> /System/Library/PrivateFrameworks/CoreMediaAuthoring.framework/Versions/A/CoreMediaAuthoring
+    0x7fff99b46000 -     0x7fff99b46fff  com.apple.Accelerate (1.10 - Accelerate 1.10) <F1B96A61-7E4B-31BD-A35B-BA7EF1F16EF4> /System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate
+    0x7fff99b47000 -     0x7fff99c0aff7  libvMisc.dylib (516) <21497A28-8DCB-3EB8-BDAC-93C93382B0AA> /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib
+    0x7fff99c0b000 -     0x7fff99c11fff  com.apple.speech.recognition.framework (5.0.9 - 5.0.9) <BB2D573F-0A01-379F-A2BA-3C454EDCB111> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/SpeechRecognition.framework/Versions/A/SpeechRecognition
+    0x7fff99c8d000 -     0x7fff99c8fff3  com.apple.SafariServices.framework (10601 - 10601.1.56.2) <7E79E3CB-E567-3122-AEC5-1C6C0EC0A7B8> /System/Library/PrivateFrameworks/SafariServices.framework/Versions/A/SafariServices
+
+External Modification Summary:
+  Calls made by other processes targeting this process:
+    task_for_pid: 40
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by all processes on this machine:
+    task_for_pid: 19591428
+    thread_create: 1
+    thread_set_state: 0
+
+VM Region Summary:
+ReadOnly portion of Libraries: Total=410.6M resident=318.8M(78%) swapped_out_or_unallocated=91.8M(22%)
+Writable regions: Total=548.6M written=171.1M(31%) resident=325.2M(59%) swapped_out=76K(0%) unallocated=223.4M(41%)
+ 
+REGION TYPE                      VIRTUAL
+===========                      =======
+CG backing stores                  10.2M
+CG image                           1080K
+CG shared images                    176K
+CoreServices                       1316K
+CoreUI image data                   148K
+Dispatch continuations             16.0M
+IOKit                             101.2M
+Kernel Alloc Once                     8K
+MALLOC                            125.4M
+MALLOC (admin)                       32K
+Mach message                          4K
+Memory Tag 242                       12K
+OpenGL GLSL                         256K
+STACK GUARD                        56.2M
+Stack                              61.4M
+VM_ALLOCATE                       234.3M
+__DATA                             39.9M
+__GLSLBUILTINS                     2588K
+__IMAGE                             528K
+__LINKEDIT                        141.5M
+__TEXT                            269.1M
+__UNICODE                           552K
+mapped file                       320.1M
+shared memory                      1092K
+===========                      =======
+TOTAL                               1.4G
+
+Model: MacBookPro10,1, BootROM MBP101.00EE.B09, 4 processors, Intel Core i7, 2.6 GHz, 16 GB, SMC 2.3f36
+Graphics: Intel HD Graphics 4000, Intel HD Graphics 4000, Built-In
+Graphics: NVIDIA GeForce GT 650M, NVIDIA GeForce GT 650M, PCIe, 1024 MB
+Memory Module: BANK 0/DIMM0, 8 GB, DDR3, 1600 MHz, 0x80AD, 0x484D5434314753364D465238432D50422020
+Memory Module: BANK 1/DIMM0, 8 GB, DDR3, 1600 MHz, 0x80AD, 0x484D5434314753364D465238432D50422020
+AirPort: spairport_wireless_card_type_airport_extreme (0x14E4, 0xEF), Broadcom BCM43xx 1.0 (7.15.166.24.3)
+Bluetooth: Version 4.3.6f3 16238, 3 services, 27 devices, 1 incoming serial ports
+Network Service: Wi-Fi, AirPort, en0
+Serial ATA Device: APPLE SSD SM512E, 500.28 GB
+USB Device: Hub
+USB Device: FaceTime HD Camera (Built-in)
+USB Device: Hub
+USB Device: Hub
+USB Device: Apple Internal Keyboard / Trackpad
+USB Device: BRCM20702 Hub
+USB Device: Bluetooth USB Host Controller
+Thunderbolt Bus: MacBook Pro, Apple Inc., 23.4

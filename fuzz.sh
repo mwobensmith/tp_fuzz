@@ -5,8 +5,11 @@ echo
 echo
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
+NUM_ITERATIONS=2000
 # needs error check here... if fail, abort run
 python $DIR'/shavar_server.py' &
+
+# TODO: save process ID for python and kill later
 
 kill_firefox()
 {
@@ -21,9 +24,8 @@ kill_firefox()
 
 run()
 {
-	DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-	open $DIR'/fuzz_profile_clean.zip'	
-	sleep 2
+	open $DIR'/fuzz_profile_clean.zip' 
+	sleep 5
 	echo Launching Firefox...
 	cd /Applications/Nightly.app/Contents/MacOS
 	./firefox -profile $DIR'/fuzz_shavar' &
@@ -31,11 +33,10 @@ run()
 
 	kill_firefox
 	rm -rf $DIR'/fuzz_shavar'
-	sleep 2
+	sleep 5
 }
 
-for i in {1..200}
+for i in {1..$NUM_ITERATIONS}
 do
 	run
-	#sleep 2
 done
