@@ -1,0 +1,51 @@
+SHAVAR RESPONSE:
+
+1%8edl(S!Y"|U&P'.V>:?Bs L5L)}j"{lI[e`4T67{foQ
+n:9!=Ao[JDw+aN'|e}[ ]2
+d:<}A<rQtNKJx1V:ji"K+YG;$(P&a
+i:5027
+d:B
+u:|KXsj9J`kVisEWs:kt.qpM,g _>J/v_-CU,d..h:Ft:^+h_ZBA&?w5h3d.com
+
+listmanager: 22:14:45 GMT-0800 (PST): update success for mozstd-track-digest256,mozstd-trackwhite-digest256 from http://localhost:13000: 9
+listmanager: 22:14:45 GMT-0800 (PST): Ignoring delay from server (too short), waiting 1800000ms
+listmanager: 22:14:45 GMT-0800 (PST): Setting last update of mozilla to 1454566485237
+SafeBrowsing: 22:14:45 GMT-0800 (PST): reading prefs
+
+
+
+
+SHAVAR RESPONSE:
+
+n:4@E'NRAe;Jh,|U6T
+i:83007.3381251
+
+listmanager: 17:55:50 GMT-0800 (PST): update success for mozstd-track-digest256,mozstd-trackwhite-digest256 from http://localhost:13000: 4
+listmanager: 17:55:50 GMT-0800 (PST): Ignoring delay from server (too short), waiting 1800000ms
+listmanager: 17:55:50 GMT-0800 (PST): Setting last update of mozilla to 1454550950834
+
+
+
+SHAVAR RESPONSE:
+
+n:5zI;Lg2Dg]#
+O}e3A{:C
+ad:X;H;J'Y|2V+C}_p
+
+listmanager: 18:15:29 GMT-0800 (PST): update success for mozstd-track-digest256,mozstd-trackwhite-digest256 from http://localhost:13000: 5
+listmanager: 18:15:29 GMT-0800 (PST): Ignoring delay from server (too short), waiting 1800000ms
+listmanager: 18:15:29 GMT-0800 (PST): Setting last update of mozilla to 1454552129702
+
+
+
+
+SHAVAR RESPONSE:
+
+d:EI|*pXk0S"`g9
+n:4da '+PNj
+n:1$g9oKPse)09TEmt1{_
+n:U
+
+listmanager: 19:36:35 GMT-0800 (PST): update success for mozstd-track-digest256,mozstd-trackwhite-digest256 from http://localhost:13000: 1
+listmanager: 19:36:35 GMT-0800 (PST): Ignoring delay from server (too short), waiting 1800000ms
+listmanager: 19:36:35 GMT-0800 (PST): Setting last update of mozilla to 1454556995529
