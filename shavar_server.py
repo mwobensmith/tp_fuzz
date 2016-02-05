@@ -19,7 +19,7 @@ def create_response():
         tag = get_tag()
         if (tag == "u"):
             value = get_fuzzy_url()
-        elif (tag == "i"):
+        elif (tag == "n"):
             if (random.randint(1,3) != 3):
                 value = str(get_fuzzy_num())
             else:
