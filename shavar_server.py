@@ -9,8 +9,8 @@ def include(filename):
     if os.path.exists(filename): 
         execfile(filename)
 
-
-#include('myfile.py')
+# TODO: externalize fuzzing functions
+#include('fuzz_functions.py')
 
 def create_response():
     response = ""
@@ -127,10 +127,6 @@ def run():
         print "\nSHAVAR RESPONSE:\n"
         print response_body_raw + "\n"
 
-        # Clearly state that connection will be closed after this response,
-        # and specify length of response body
-        # Content-type: text/plain; charset=us-ascii
-        # 'Content-Type': 'text/plain; charset=us-ascii',
         response_headers = {
             'Content-Type': 'text/plain; charset=us-ascii',
             'Content-Length': len(response_body_raw),
@@ -143,7 +139,7 @@ def run():
         # Reply as HTTP/1.1 server, saying "HTTP OK" (code 200).
         response_proto = 'HTTP/1.1'
         response_status = '200'
-        response_status_text = 'OK' # this can be random
+        response_status_text = 'OK' # this could be randomized
 
 
         # sending all this stuff
@@ -155,8 +151,6 @@ def run():
         temp = response_body_raw.decode ("utf-8", "ignore")
 
         client_sock.send(temp)
-
-        # and closing connection, as we stated before
         client_sock.close()
 
 run()
